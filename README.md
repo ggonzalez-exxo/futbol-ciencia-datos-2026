@@ -68,7 +68,7 @@ Cada evento contiene: coordenadas de inicio y fin de la acción (sistema 0–100
 
 El formato **Parquet** se usa en los notebooks para una carga hasta 10× más rápida respecto al JSON original y un consumo de memoria reducido en más del 60%.
 
-Los datos se pueden descargar desde: [mega.nz/folder/dpIxiYrZ#CBR9Igt4hgLuknBqEPYXeA](https://mega.nz/folder/dpIxiYrZ#CBR9Igt4hgLuknBqEPYXeA)
+Los datos originales están disponibles en: [futbol-ciencia-datos-2026-raw-data](https://mega.nz/folder/dpIxiYrZ#CBR9Igt4hgLuknBqEPYXeA)
 
 ---
 
@@ -76,38 +76,40 @@ Los datos se pueden descargar desde: [mega.nz/folder/dpIxiYrZ#CBR9Igt4hgLuknBqEP
 
 ```
 .
-├── data/
-│   ├──events/
-│   │   ├──events_England.parquet
-│   │   ├──events_European_Championship.parquet
-│   │   ├──events_France.parquet
-│   │   ├──events_Germany.parquet
-│   │   ├──events_Italy.parquet
-│   │   ├──events_Spain.parquet
-│   │   └──events_World_Cup.parquet
-│   ├──matches/
-│   │   ├──matches_England.json
-│   │   ├──matches_European_Championship.json
-│   │   ├──matches_France.json
-│   │   ├──matches_Germany.json
-│   │   ├──matches_Italy.json
-│   │   ├──matches_Spain.json
-│   │   └──matches_World_Cup.json
-│   ├──coaches.json
-│   ├──competitions.json
-│   ├──eventid2name.csv
-│   ├──players.json
-│   ├──referees.json
-│   ├──tags2name.csv
-│   └──teams.json
-│
 ├── notebooks/
 │   ├── P1_Analisis_Visualizacion.ipynb      # Hito 1: EDA + Visualizaciones
 │   ├── P2_EDA_Curacion_SPADL.ipynb          # Hito 2: Curación + SPADL
 │   └── P3_Supervisado_NoSupervisado.ipynb   # Hito 3: ML supervisado + clustering
 │
 ├── requirements.txt
-└── README.md
+│
+├── README.md
+│
+└── data/
+    ├──events/
+    │   ├──events_England.parquet
+    │   ├──events_European_Championship.parquet
+    │   ├──events_France.parquet
+    │   ├──events_Germany.parquet
+    │   ├──events_Italy.parquet
+    │   ├──events_Spain.parquet
+    │   └──events_World_Cup.parquet
+    ├──matches/
+    │   ├──matches_England.json
+    │   ├──matches_European_Championship.json
+    │   ├──matches_France.json
+    │   ├──matches_Germany.json
+    │   ├──matches_Italy.json
+    │   ├──matches_Spain.json
+    │   └──matches_World_Cup.json
+    ├──coaches.json
+    ├──competitions.json
+    ├──eventid2name.csv
+    ├──players.json
+    ├──referees.json
+    ├──tags2name.csv
+    └──teams.json
+
 ```
 
 ---
@@ -174,7 +176,7 @@ Este trabajo forma parte de la **Diplomatura en Ciencia de Datos, Aprendizaje Au
 ---
 
 <p align="center">
-  <strong>Guillermo Alonso</strong><br>
+  <strong>Ing. Guillermo F. Alonso</strong><br>
   📧 <a href="mailto:ing.guillermoalonso@gmail.com">ing.guillermoalonso@gmail.com</a><br>
   DiploDatos 2026 · FaMAF · UNC
 </p>

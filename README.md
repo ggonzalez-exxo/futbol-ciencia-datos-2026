@@ -77,6 +77,29 @@ Los datos se pueden descargar desde: [mega.nz/folder/dpIxiYrZ#CBR9Igt4hgLuknBqEP
 ```
 .
 ├── data/
+│   ├──events/
+│   │   ├──events_England.parquet
+│   │   ├──events_European_Championship.parquet
+│   │   ├──events_France.parquet
+│   │   ├──events_Germany.parquet
+│   │   ├──events_Italy.parquet
+│   │   ├──events_Spain.parquet
+│   │   └──events_World_Cup.parquet
+│   ├──matches/
+│   │   ├──matches_England.json
+│   │   ├──matches_European_Championship.json
+│   │   ├──matches_France.json
+│   │   ├──matches_Germany.json
+│   │   ├──matches_Italy.json
+│   │   ├──matches_Spain.json
+│   │   └──matches_World_Cup.json
+│   ├──coaches.json
+│   ├──competitions.json
+│   ├──eventid2name.csv
+│   ├──players.json
+│   ├──referees.json
+│   ├──tags2name.csv
+│   └──teams.json
 │
 ├── notebooks/
 │   ├── P1_Analisis_Visualizacion.ipynb      # Hito 1: EDA + Visualizaciones

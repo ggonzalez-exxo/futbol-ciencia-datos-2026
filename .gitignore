@@ -1,2 +1,11 @@
-\!next_Steps.md
+!next_Steps.md
 /privado/
+
+# Datos SPADL generados
+data/spadl/
+
+# Scripts temporales y de debug
+/scripts/
+
+# Archivo de agentes
+agents.md

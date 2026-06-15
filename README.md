@@ -82,7 +82,7 @@ Los datos originales están disponibles en: [futbol-ciencia-datos-2026-raw-data]
 │   └── P3_Supervisado_NoSupervisado.ipynb   # Hito 3: ML supervisado + clustering
 │
 ├── requirements.txt
-│
+├── .gitignore
 ├── README.md
 │
 └── data/

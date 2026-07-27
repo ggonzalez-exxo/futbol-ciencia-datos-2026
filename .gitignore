@@ -9,3 +9,12 @@ data/spadl/
 
 # Archivo de agentes
 agents.md
+# Entorno virtual (cada uno crea el suyo con requirements.txt, no se versiona)
+.venv/
+
+# Checkpoints automáticos de Jupyter
+.ipynb_checkpoints/
+
+# Cache de Python
+__pycache__/
+*.pyc

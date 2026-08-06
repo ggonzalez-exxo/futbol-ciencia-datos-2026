@@ -114,6 +114,11 @@ Los datos originales están disponibles en: [futbol-ciencia-datos-2026-raw-data]
 
 ---
 
+## Preguntas frecuentes (FAQ)
+
+Encontrá las preguntas y respuestas frecuentes en: [privado/faq.md](privado/faq.md)
+
+
 ## Hitos del proyecto
 
 ### Práctico 1 — Análisis y Visualización

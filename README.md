@@ -119,6 +119,9 @@ Los datos originales están disponibles en: [futbol-ciencia-datos-2026-raw-data]
 ### Práctico 1 — Análisis y Visualización
 Exploración visual del dataset completo. Construcción de shot maps, heat maps de densidad, redes de pases y radares de jugadores. Implementación de un modelo baseline de **Expected Goals (xG)** con regresión logística.
 
+  > [!IMPORTANT]
+  > Entrega viernes 7/8 por aula virtual moodle
+
 ### Práctico 2 — Exploración y Curación de Datos
 Análisis riguroso de calidad de datos, detección de outliers y valores faltantes. Conversión del formato Wyscout al estándar **SPADL** usando `socceraction`. Feature engineering contextual y normalización por posición y minutos jugados.
 

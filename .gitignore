@@ -9,3 +9,10 @@ data/spadl/
 
 # Archivo de agentes
 agents.md
+
+.vscode/
+__pycache__/
+*.pyc
+
+# Jupyter Notebooks
+.ipynb_checkpoints/

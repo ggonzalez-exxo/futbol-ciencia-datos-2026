@@ -1,4 +1,5 @@
-# Python 3.12.7 (Anaconda)
+# Requires-Python: >=3.12.7
+# Python 3.12.7 (Anaconda) is recommended
 # Compatibility: tested on Windows 64-bit
 
 # Core
@@ -9,6 +10,8 @@ pandas==2.2.2
 matplotlib==3.9.2
 plotly==5.24.1
 mplsoccer==1.4.0
+seaborn==0.13.2
+
 
 # Scientific computing
 scipy==1.13.1
@@ -19,6 +22,12 @@ pyarrow==16.1.0
 
 # Sports analytics
 socceraction==1.5.3
+multimethod==1.12
 
 # Progress bars
 tqdm==4.66.5
+
+# Jupyter & Environment
+pip
+ipykernel>=6.29.5
+jupyter>=1.1.1

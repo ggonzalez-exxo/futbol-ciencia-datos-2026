@@ -16,3 +16,9 @@ __pycache__/
 
 # Jupyter Notebooks
 .ipynb_checkpoints/
+
+# Entornos virtuales
+.venv/
+
+#Corrección de errores
+/correcciones/

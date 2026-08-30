@@ -227,7 +227,14 @@ def augment_events(events_df):
         if "subEventId" in events_df.columns
         else events_df.subEventName
     )
+    # Fix pandas 3.0: en pandas 3.x las columnas string se crean con dtype='str'
+    # (ArrowStringArray) que no acepta asignación de enteros. Se convierte a object
+    # para mantener compatibilidad con el resto del pipeline de wyscout.py que
+    # asigna valores enteros a estas columnas (ej. type_id=8, subtype_id=82).
+    events_df["type_id"] = events_df["type_id"].astype(object)
+    events_df["subtype_id"] = events_df["subtype_id"].astype(object)
     events_df["period_id"] = events_df.matchPeriod.apply(lambda x: wyscout_periods[x])
+
     events_df["player_id"] = events_df["playerId"]
     events_df["team_id"] = events_df["teamId"]
     events_df["game_id"] = events_df["matchId"]
@@ -334,7 +341,7 @@ def make_position_vars(event_id, positions):
 
 def make_new_positions(events_df):
     new_positions = events_df[["id", "positions"]].apply(
-        lambda x: make_position_vars(x[0], x[1]), axis=1
+        lambda x: make_position_vars(x["id"], x["positions"]), axis=1
     )
     new_positions.columns = ["id", "start_x", "start_y", "end_x", "end_y"]
     events_df = pd.merge(events_df, new_positions, left_on="id", right_on="id")

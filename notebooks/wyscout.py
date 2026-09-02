@@ -227,14 +227,7 @@ def augment_events(events_df):
         if "subEventId" in events_df.columns
         else events_df.subEventName
     )
-    # Fix pandas 3.0: en pandas 3.x las columnas string se crean con dtype='str'
-    # (ArrowStringArray) que no acepta asignación de enteros. Se convierte a object
-    # para mantener compatibilidad con el resto del pipeline de wyscout.py que
-    # asigna valores enteros a estas columnas (ej. type_id=8, subtype_id=82).
-    events_df["type_id"] = events_df["type_id"].astype(object)
-    events_df["subtype_id"] = events_df["subtype_id"].astype(object)
     events_df["period_id"] = events_df.matchPeriod.apply(lambda x: wyscout_periods[x])
-
     events_df["player_id"] = events_df["playerId"]
     events_df["team_id"] = events_df["teamId"]
     events_df["game_id"] = events_df["matchId"]
@@ -321,27 +314,27 @@ wyscout_tags = [
 
 
 def make_position_vars(event_id, positions):
-    if len(positions) == 2:  # if less than 2 then action is removed
+    if len(positions) >= 2:
         start_x = positions[0]["x"]
         start_y = positions[0]["y"]
-        end_x = positions[1]["x"]
-        end_y = positions[1]["y"]
+        end_x   = positions[1]["x"]
+        end_y   = positions[1]["y"]
     elif len(positions) == 1:
         start_x = positions[0]["x"]
         start_y = positions[0]["y"]
-        end_x = start_x
-        end_y = start_y
+        end_x   = None   # 🔧 CAMBIO: antes era start_x (falso destino).
+        end_y   = None   # Ahora NaN explícito — no hay información de destino.
     else:
         start_x = None
         start_y = None
-        end_x = None
-        end_y = None
+        end_x   = None
+        end_y   = None
     return pd.Series([event_id, start_x, start_y, end_x, end_y])
 
 
 def make_new_positions(events_df):
     new_positions = events_df[["id", "positions"]].apply(
-        lambda x: make_position_vars(x["id"], x["positions"]), axis=1
+        lambda x: make_position_vars(x[0], x[1]), axis=1
     )
     new_positions.columns = ["id", "start_x", "start_y", "end_x", "end_y"]
     events_df = pd.merge(events_df, new_positions, left_on="id", right_on="id")

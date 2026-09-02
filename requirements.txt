@@ -1,35 +1,17 @@
-# Requires-Python: >=3.12.7
-# Python 3.12.7 (Anaconda) is recommended
-# Compatibility: tested on Windows 64-bit
+# Se necesita python 3.12 para poder utilizar socceraction.
 
-# Core
 numpy==1.26.4
 pandas==2.2.2
-codecs==1.0.4
-
-# Visualization
 matplotlib==3.9.2
 plotly==5.24.1
 mplsoccer==1.4.0
 seaborn==0.13.2
-
-
-# Scientific computing
 scipy==1.13.1
 scikit-learn==1.8.0
-sklearn==1.8.0
-
-# Data format
 pyarrow==16.1.0
-
-# Sports analytics
 socceraction==1.5.3
 multimethod==1.12
-
-# Progress bars
 tqdm==4.66.5
-
-# Jupyter & Environment
-pip
 ipykernel>=6.29.5
 jupyter>=1.1.1
+statsmodels

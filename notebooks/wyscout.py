@@ -322,8 +322,8 @@ def make_position_vars(event_id, positions):
     elif len(positions) == 1:
         start_x = positions[0]["x"]
         start_y = positions[0]["y"]
-        end_x   = None   # 🔧 CAMBIO: antes era start_x (falso destino).
-        end_y   = None   # Ahora NaN explícito — no hay información de destino.
+        end_x   = start_x  # Wyscout registra 1 sola posicion solo en fouls/interrupciones;
+        end_y   = start_y  # para esos eventos el destino ES el origen (25 de 100.000 eventos).
     else:
         start_x = None
         start_y = None

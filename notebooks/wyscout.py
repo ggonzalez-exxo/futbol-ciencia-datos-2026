@@ -223,10 +223,11 @@ def augment_events(events_df):
         events_df["eventId"] if "eventId" in events_df.columns else events_df.eventName
     )
     events_df["subtype_id"] = (
-        events_df["subEventId"]
+        pd.to_numeric(events_df["subEventId"], errors="coerce").fillna(0).astype(int)
         if "subEventId" in events_df.columns
         else events_df.subEventName
     )
+
     events_df["period_id"] = events_df.matchPeriod.apply(lambda x: wyscout_periods[x])
     events_df["player_id"] = events_df["playerId"]
     events_df["team_id"] = events_df["teamId"]

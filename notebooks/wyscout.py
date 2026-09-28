@@ -1,6 +1,8 @@
-import pandas as pd  # type: ignore
-import tqdm  # type: ignore
+import pandas as pd # type: ignore
+import numpy as np # type: ignore
+import tqdm # type: ignore
 import json
+import os
 
 ###############################################
 # Convert wyscout json files to wyscout.h5
@@ -10,7 +12,7 @@ import json
 def jsonfiles_to_h5(jsonfiles, h5file):
 
     matches = []
-    players: list = []
+    players : list = []
     teams: list = []
 
     with pd.HDFStore(h5file) as store:
@@ -79,6 +81,7 @@ max_dribble_duration = 10
 def convert_to_spadl(wyscouth5, spadlh5):
 
     with pd.HDFStore(wyscouth5) as wyscoutstore, pd.HDFStore(spadlh5) as spadlstore:
+
         print("...Inserting actiontypes")
         spadlstore["actiontypes"] = pd.DataFrame(
             list(enumerate(actiontypes)), columns=["type_id", "type_name"]
@@ -173,7 +176,7 @@ def get_player_games(match, events):
     game_id = match.wyId
     teamsData = match.teamsData
     duration = 45 + events[events.matchPeriod == "2H"].eventSec.max() / 60
-    playergames: dict = {}
+    playergames : dict = {}
     for team_id, teamData in teamsData.items():
         formation = teamData.get("formation", {})
         pg = {
@@ -216,15 +219,16 @@ def convert_actions(events, home_team_id):
 def augment_events(events_df):
     events_df = pd.concat([events_df, get_tagsdf(events_df)], axis=1)
     events_df = make_new_positions(events_df)
-    events_df["type_id"] = (
-        events_df["eventId"] if "eventId" in events_df.columns else events_df.eventName
-    )
-    events_df["subtype_id"] = (
-        pd.to_numeric(events_df["subEventId"], errors="coerce").fillna(0).astype(int)
+    events_df["type_id"] = pd.to_numeric(
+        events_df["eventId"] if "eventId" in events_df.columns else events_df.eventName,
+        errors="coerce",
+    ).fillna(-1).astype(int)
+    events_df["subtype_id"] = pd.to_numeric(
+        events_df["subEventId"]
         if "subEventId" in events_df.columns
-        else events_df.subEventName
-    )
-
+        else events_df.subEventName,
+        errors="coerce",
+    ).fillna(-1).astype(int)
     events_df["period_id"] = events_df.matchPeriod.apply(lambda x: wyscout_periods[x])
     events_df["player_id"] = events_df["playerId"]
     events_df["team_id"] = events_df["teamId"]
@@ -240,7 +244,7 @@ def get_tag_set(tags):
 def get_tagsdf(events):
     tags = events.tags.apply(get_tag_set)
     tagsdf = pd.DataFrame()
-    for tag_id, column in wyscout_tags:
+    for (tag_id, column) in wyscout_tags:
         tagsdf[column] = tags.apply(lambda x: tag_id in x)
     return tagsdf
 
@@ -312,7 +316,7 @@ wyscout_tags = [
 
 
 def make_position_vars(event_id, positions):
-    if len(positions) >= 2:
+    if len(positions) == 2:  # if less than 2 then action is removed
         start_x = positions[0]["x"]
         start_y = positions[0]["y"]
         end_x = positions[1]["x"]
@@ -320,10 +324,8 @@ def make_position_vars(event_id, positions):
     elif len(positions) == 1:
         start_x = positions[0]["x"]
         start_y = positions[0]["y"]
-        end_x = (
-            start_x  # Wyscout registra 1 sola posicion solo en fouls/interrupciones;
-        )
-        end_y = start_y  # para esos eventos el destino ES el origen (25 de 100.000 eventos).
+        end_x = start_x
+        end_y = start_y
     else:
         start_x = None
         start_y = None
@@ -333,8 +335,11 @@ def make_position_vars(event_id, positions):
 
 
 def make_new_positions(events_df):
+    cols_to_drop = [c for c in ["start_x", "start_y", "end_x", "end_y"] if c in events_df.columns]
+    if cols_to_drop:
+        events_df = events_df.drop(columns=cols_to_drop)
     new_positions = events_df[["id", "positions"]].apply(
-        lambda x: make_position_vars(x[0], x[1]), axis=1
+        lambda x: make_position_vars(x.iloc[0], x.iloc[1]), axis=1
     )
     new_positions.columns = ["id", "start_x", "start_y", "end_x", "end_y"]
     events_df = pd.merge(events_df, new_positions, left_on="id", right_on="id")
@@ -344,7 +349,7 @@ def make_new_positions(events_df):
 
 def fix_wyscout_events(df_events):
     """
-    This function does some fixes on the Wyscout events such that the
+    This function does some fixes on the Wyscout events such that the 
     spadl action dataframe can be built
 
     Args:
@@ -611,7 +616,7 @@ def convert_touches(df_events):
     selector_same_player = df_events["player_id"] == df_events1["player_id"]
     selector_same_team = df_events["team_id"] == df_events1["team_id"]
 
-    # selector_touch_same_player = selector_touch & selector_same_player
+    #selector_touch_same_player = selector_touch & selector_same_player
     selector_touch_same_team = (
         selector_touch & ~selector_same_player & selector_same_team
     )
@@ -961,8 +966,8 @@ def add_dribbles(actions):
 
     dx = actions.end_x - next_actions.start_x
     dy = actions.end_y - next_actions.start_y
-    far_enough = dx**2 + dy**2 >= min_dribble_length**2
-    not_too_far = dx**2 + dy**2 <= max_dribble_length**2
+    far_enough = dx ** 2 + dy ** 2 >= min_dribble_length ** 2
+    not_too_far = dx ** 2 + dy ** 2 <= max_dribble_length ** 2
 
     dt = next_actions.time_seconds - actions.time_seconds
     same_phase = dt < max_dribble_duration

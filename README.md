@@ -122,7 +122,7 @@ Encontrá las preguntas y respuestas frecuentes en: [FAQ.md](FAQ.md)
 ## Hitos del proyecto
 
 ### Práctico 1 — Análisis y Visualización
-Exploración visual del dataset completo. Construcción de shot maps, heat maps de densidad, redes de pases y radares de jugadores. Implementación de un modelo baseline de **Expected Goals (xG)** con regresión logística.
+Exploración visual del dataset completo. Construcción de shot mavps, heat maps de densidad, redes de pases y radares de jugadores. Implementación de un modelo baseline de **Expected Goals (xG)** con regresión logística.
 
   > [!IMPORTANT]
   > Entrega viernes 7/8 por aula virtual moodle

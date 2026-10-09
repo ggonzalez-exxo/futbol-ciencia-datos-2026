@@ -1,6 +1,6 @@
-# Requires-Python: >=3.12.7
-# Python 3.12.7 (Anaconda) is recommended
-# Compatibility: tested on Windows 64-bit
+# Python 3.12.7
+# Entorno de análisis de datos y analytics de fútbol
+# Instalar con: python -m pip install -r requirements.txt
 
 # Core
 numpy==1.26.4
@@ -12,27 +12,29 @@ plotly==5.24.1
 mplsoccer==1.4.0
 seaborn==0.13.2
 
-
 # Scientific computing & ML
 scipy==1.13.1
 scikit-learn==1.8.0
 statsmodels>=0.14.0
-xgboost>=2.0.0
-lightgbm>=4.0.0
-shap>=0.45.0
-umap-learn>=0.5.0
+xgboost==2.1.4
+lightgbm==4.7.0
+shap==0.49.1
+umap-learn==0.5.12
 
 # Data format
 pyarrow==16.1.0
 
 # Sports analytics
 socceraction==1.5.3
+lxml==4.9.4
 multimethod==1.12
 
 # Progress bars
 tqdm==4.66.5
 
-# Jupyter & Environment
-pip
+# Jupyter kernel
 ipykernel>=6.29.5
 jupyter>=1.1.1
+
+# Dependencias auxiliares usadas por el proyecto
+pip

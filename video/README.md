@@ -89,6 +89,28 @@ Además se generan estos PNG de referencia:
 - `video/graficos/esc05/esc05_umap_final.png`
 - `video/animaciones/umap_embedding.csv` (coordenadas UMAP por jugador)
 
+### Version HyperFrames (recomendada)
+
+Las 4 animaciones también existen como **composiciones HyperFrames** en
+`video/hyperframes/` — HTML + GSAP, vectores más nítidos y mejor motion:
+
+```bash
+cd video/hyperframes
+npm run check                       # lint + runtime + layout + contrast
+npx hyperframes snapshot --at 2,5,10,16   # ver frames antes de renderizar
+npm run render                      # master con las 4 piezas (17 s)
+```
+
+- `compositions/counter.html` — contador 0 → 3.251.294 (3,2 s)
+- `compositions/xt.html` — grilla xT iterando (4,2 s)
+- `compositions/heatmap.html` — Messi vs Cristiano, VAEP por zona (4,2 s)
+- `compositions/umap.html` — 1.201 jugadores por arquetipo (5,4 s)
+
+Los datos se regeneran con `video/scripts/export_hf_data.py` (escribe
+`assets/data/*.js`); el master se renderiza a `video/animaciones/hf_datos_4piezas.mp4`
+y en Kdenlive se corta en los límites de escena. Estos MP4 reemplazan a los
+generados con matplotlib; los umbrates de escena están en el guión.
+
 Para generar solo una parte:
 
 ```bash

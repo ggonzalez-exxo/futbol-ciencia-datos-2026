@@ -1,0 +1,135 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 2
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 1.956,
+        "selector": "#counter-value",
+        "message": "Nowrap text is wider than its container.",
+        "rect": {
+          "left": -22.27,
+          "top": 372.93,
+          "right": 1942.27,
+          "bottom": 611.45,
+          "width": 1964.54,
+          "height": 238.52
+        },
+        "containerSelector": "div.stage",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 375.63,
+          "right": 1920,
+          "bottom": 682.74,
+          "width": 1920,
+          "height": 307.11
+        },
+        "overflow": {
+          "left": 22.27,
+          "right": 22.27
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/counter.html",
+        "bbox": {
+          "x": -22.27,
+          "y": 372.93,
+          "width": 1964.54,
+          "height": 238.52
+        },
+        "firstSeen": 1.956,
+        "lastSeen": 1.956,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          1.956
+        ]
+      }
+    ],
+    "duration": 3.2,
+    "samples": [
+      0.178,
+      0.533,
+      0.889,
+      1.244,
+      1.6,
+      1.956,
+      2.311,
+      2.667,
+      3.022
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 1,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      0.178,
+      0.889,
+      1.6,
+      2.311,
+      3.022
+    ],
+    "checked": 52,
+    "passed": 52
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "step": 0.123,
+    "samples": 26
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

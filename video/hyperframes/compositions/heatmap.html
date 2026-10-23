@@ -1,0 +1,384 @@
+<template>
+  <div id="root" data-composition-id="heatmap" data-width="1920" data-height="1080" data-duration="4.2" data-fps="30">
+    <style>
+      #root {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        background: radial-gradient(1200px 800px at 50% 54%, #0c1118 0%, #070a0d 60%, #050607 100%);
+        color: #f3f7f4;
+        font-family: Inter, system-ui, sans-serif;
+      }
+
+      .clip {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+
+      .grid-bg {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
+        background-size: 80px 80px;
+        mask-image: radial-gradient(1100px 720px at 50% 54%, #000 10%, transparent 82%);
+        -webkit-mask-image: radial-gradient(1100px 720px at 50% 54%, #000 10%, transparent 82%);
+      }
+
+      .title {
+        position: absolute;
+        left: 90px;
+        top: 56px;
+      }
+
+      .title h1 {
+        font-size: 60px;
+        font-weight: 700;
+        letter-spacing: -0.035em;
+        line-height: 1;
+        margin: 0;
+      }
+
+      .title p {
+        margin-top: 14px;
+        font-size: 28px;
+        font-weight: 500;
+        color: #8a9c92;
+      }
+
+      .chapter {
+        position: absolute;
+        right: 90px;
+        top: 66px;
+        font-size: 28px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        color: #8a9c92;
+        opacity: 0;
+      }
+
+      .chapter b {
+        color: #a3e635;
+      }
+
+      .panels {
+        position: absolute;
+        left: 60px;
+        top: 214px;
+        display: flex;
+        gap: 120px;
+      }
+
+      .panel {
+        width: 820px;
+        opacity: 0;
+      }
+
+      .panel-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        padding: 0 6px;
+      }
+
+      .panel-name {
+        font-size: 38px;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+      }
+
+      .panel-tag {
+        font-size: 28px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        color: #8a9c92;
+      }
+
+      .panel-tag b {
+        color: #a3e635;
+      }
+
+      .pitch {
+        width: 820px;
+        height: 531px;
+        display: block;
+        border-radius: 6px;
+        background: #080c10;
+        box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.14), 0 30px 80px rgba(0, 0, 0, 0.35);
+      }
+
+      .panel-foot {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        margin-top: 14px;
+        padding: 0 6px;
+      }
+
+      .stat {
+        font-size: 28px;
+        font-weight: 600;
+        color: #8a9c92;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .stat strong {
+        color: #f3f7f4;
+        font-weight: 700;
+      }
+
+      .stat.accent strong {
+        color: #a3e635;
+      }
+
+      .legend {
+        position: absolute;
+        left: 50%;
+        bottom: 54px;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        opacity: 0;
+      }
+
+      .legend-label {
+        font-size: 28px;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        color: #8a9c92;
+      }
+
+      .legend-bar {
+        width: 460px;
+        height: 16px;
+        border-radius: 8px;
+        background: linear-gradient(
+          to right,
+          #0b1020 0%,
+          #2a1a5e 16%,
+          #3b2f8f 32%,
+          #1f7a8c 52%,
+          #2bb673 70%,
+          #a3e635 86%,
+          #fde047 100%
+        );
+      }
+
+      .legend-min,
+      .legend-max {
+        font-size: 28px;
+        font-weight: 600;
+        color: #7f9188;
+      }
+    </style>
+
+    <div id="hm-clip" class="clip" data-start="0" data-duration="4.2" data-track-index="0">
+      <div class="grid-bg"></div>
+
+      <div id="hm-title" class="title">
+        <h1>Zonas calientes de generación de valor</h1>
+        <p>VAEP ofensivo por zona · temporada 2017/18</p>
+      </div>
+
+      <div id="hm-chapter" class="chapter"><b>05</b> / VAEP</div>
+
+      <div class="panels">
+        <div id="hm-panel-0" class="panel">
+          <div class="panel-head">
+            <span class="panel-name">L. Messi</span>
+            <span class="panel-tag"><b>138</b> acciones top</span>
+          </div>
+          <svg id="hm-pitch-0" class="pitch" viewBox="0 0 105 68" preserveAspectRatio="none" aria-hidden="true">
+            <g id="hm-cells-0"></g>
+            <g fill="none" stroke="#3a4656" stroke-width="0.16" stroke-linejoin="round">
+              <rect x="0" y="0" width="105" height="68"></rect>
+              <line x1="52.5" y1="0" x2="52.5" y2="68"></line>
+              <circle cx="52.5" cy="34" r="9.15"></circle>
+              <rect x="0" y="13.84" width="16.5" height="40.32"></rect>
+              <rect x="88.5" y="13.84" width="16.5" height="40.32"></rect>
+              <rect x="0" y="24.84" width="5.5" height="18.32"></rect>
+              <rect x="99.5" y="24.84" width="5.5" height="18.32"></rect>
+              <circle cx="11" cy="34" r="0.22" fill="#3a4656" stroke="none"></circle>
+              <circle cx="94" cy="34" r="0.22" fill="#3a4656" stroke="none"></circle>
+            </g>
+          </svg>
+          <div class="panel-foot">
+            <span class="stat">VAEP/partido <strong>0,972</strong></span>
+            <span class="stat accent"><strong>xT</strong> 0,738</span>
+          </div>
+        </div>
+
+        <div id="hm-panel-1" class="panel">
+          <div class="panel-head">
+            <span class="panel-name">Cristiano Ronaldo</span>
+            <span class="panel-tag"><b>60</b> acciones top</span>
+          </div>
+          <svg id="hm-pitch-1" class="pitch" viewBox="0 0 105 68" preserveAspectRatio="none" aria-hidden="true">
+            <g id="hm-cells-1"></g>
+            <g fill="none" stroke="#3a4656" stroke-width="0.16" stroke-linejoin="round">
+              <rect x="0" y="0" width="105" height="68"></rect>
+              <line x1="52.5" y1="0" x2="52.5" y2="68"></line>
+              <circle cx="52.5" cy="34" r="9.15"></circle>
+              <rect x="0" y="13.84" width="16.5" height="40.32"></rect>
+              <rect x="88.5" y="13.84" width="16.5" height="40.32"></rect>
+              <rect x="0" y="24.84" width="5.5" height="18.32"></rect>
+              <rect x="99.5" y="24.84" width="5.5" height="18.32"></rect>
+              <circle cx="11" cy="34" r="0.22" fill="#3a4656" stroke="none"></circle>
+              <circle cx="94" cy="34" r="0.22" fill="#3a4656" stroke="none"></circle>
+            </g>
+          </svg>
+          <div class="panel-foot">
+            <span class="stat">VAEP/partido <strong>0,581</strong></span>
+            <span class="stat accent"><strong>xT</strong> 0,197</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="hm-legend" class="legend">
+        <span class="legend-min">menor</span>
+        <span class="legend-label">VAEP ofensivo</span>
+        <span class="legend-bar"></span>
+        <span class="legend-max">mayor</span>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        "use strict";
+
+        var DATA = (window.HF_DATA && window.HF_DATA.heatmap) || null;
+        var NM = DATA ? DATA.grid : { m: 16, n: 12 };
+        var PANELS = DATA ? DATA.panels : [
+          { name: "L. Messi", values: [] },
+          { name: "Cristiano Ronaldo", values: [] },
+        ];
+
+        var NS = "http://www.w3.org/2000/svg";
+        var CW = 105 / NM.m;
+        var CH = 68 / NM.n;
+        var panels = [
+          { cells: [], values: PANELS[0].values || [] },
+          { cells: [], values: PANELS[1].values || [] },
+        ];
+        var stops = [
+          [0.0, [11, 16, 32]],
+          [0.16, [42, 26, 94]],
+          [0.32, [59, 47, 143]],
+          [0.52, [31, 122, 140]],
+          [0.7, [43, 182, 115]],
+          [0.86, [163, 230, 53]],
+          [1.0, [253, 224, 71]],
+        ];
+
+        function colorAt(u) {
+          u = Math.max(0, Math.min(1, u));
+          for (var i = 1; i < stops.length; i += 1) {
+            if (u <= stops[i][0]) {
+              var a = stops[i - 1];
+              var b = stops[i];
+              var p = (u - a[0]) / (b[0] - a[0]);
+              var r = Math.round(a[1][0] + (b[1][0] - a[1][0]) * p);
+              var g = Math.round(a[1][1] + (b[1][1] - a[1][1]) * p);
+              var bl = Math.round(a[1][2] + (b[1][2] - a[1][2]) * p);
+              return "rgb(" + r + "," + g + "," + bl + ")";
+            }
+          }
+          return "rgb(253,224,71)";
+        }
+
+        for (var k = 0; k < 2; k += 1) {
+          var group = document.getElementById("hm-cells-" + k);
+          for (var j = 0; j < NM.n; j += 1) {
+            for (var i = 0; i < NM.m; i += 1) {
+              var rect = document.createElementNS(NS, "rect");
+              rect.setAttribute("x", (i * CW).toFixed(4));
+              rect.setAttribute("y", ((NM.n - 1 - j) * CH).toFixed(4));
+              rect.setAttribute("width", CW.toFixed(4));
+              rect.setAttribute("height", CH.toFixed(4));
+              rect.setAttribute("fill", "#080c10");
+              rect.setAttribute("stroke", "rgba(255,255,255,0.03)");
+              rect.setAttribute("stroke-width", "0.03");
+              group.appendChild(rect);
+              panels[k].cells.push(rect);
+            }
+          }
+        }
+
+        var lo = Infinity;
+        var hi = -Infinity;
+        for (var kk = 0; kk < 2; kk += 1) {
+          var vv = panels[kk].values;
+          for (var jj = 0; jj < NM.n; jj += 1) {
+            for (var ii = 0; ii < NM.m; ii += 1) {
+              var value = vv[jj] && vv[jj][ii] != null ? vv[jj][ii] : 0;
+              if (value < lo) lo = value;
+              if (value > hi) hi = value;
+            }
+          }
+        }
+
+        function render(t) {
+          var thr = lo + (hi - lo + 0.0001) * Math.max(0, Math.min(1, t));
+          for (var k = 0; k < 2; k += 1) {
+            var values = panels[k].values;
+            var idx = 0;
+            for (var j = 0; j < NM.n; j += 1) {
+              for (var i = 0; i < NM.m; i += 1) {
+                var v = values[j] && values[j][i] != null ? values[j][i] : 0;
+                var fill = v <= thr ? colorAt(v) : "#080c10";
+                panels[k].cells[idx].setAttribute("fill", fill);
+                idx += 1;
+              }
+            }
+          }
+        }
+
+        var title = document.getElementById("hm-title");
+        var chapter = document.getElementById("hm-chapter");
+        var legend = document.getElementById("hm-legend");
+        var panelEls = [document.getElementById("hm-panel-0"), document.getElementById("hm-panel-1")];
+
+        gsap.set(title, { opacity: 0, y: 16 });
+        gsap.set(panelEls, { opacity: 0, y: 20 });
+        gsap.set(legend, { opacity: 0, y: 10 });
+
+        var state = { t: 0 };
+        var tl = gsap.timeline({ paused: true });
+
+        tl.to(title, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.02);
+        tl.to(chapter, { opacity: 1, duration: 0.4, ease: "power2.out" }, 0.12);
+        tl.to(panelEls[0], { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.14);
+        tl.to(panelEls[1], { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.26);
+        tl.to(legend, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0.5);
+
+        tl.to(
+          state,
+          {
+            t: 1,
+            duration: 2.45,
+            ease: "power1.inOut",
+            onUpdate: function () {
+              render(state.t);
+            },
+            onComplete: function () {
+              state.t = 1;
+              render(1);
+            },
+          },
+          0.55,
+        );
+
+        tl.to({}, { duration: 0.6 }, 3.2);
+
+        tl.seek(0);
+        render(0);
+        window.__timelines = window.__timelines || {};
+        window.__timelines["heatmap"] = tl;
+      })();
+    </script>
+  </div>
+</template>

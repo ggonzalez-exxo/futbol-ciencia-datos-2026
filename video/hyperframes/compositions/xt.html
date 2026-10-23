@@ -1,0 +1,398 @@
+<template>
+  <div id="root" data-composition-id="xt" data-width="1920" data-height="1080" data-duration="4.2" data-fps="30">
+    <style>
+      #root {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        background: radial-gradient(1200px 760px at 42% 50%, #0b1512 0%, #070d0a 58%, #050806 100%);
+        color: #f3f7f4;
+        font-family: Inter, system-ui, sans-serif;
+      }
+
+      .clip {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+
+      .grid-bg {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(113, 245, 167, 0.045) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(113, 245, 167, 0.045) 1px, transparent 1px);
+        background-size: 80px 80px;
+        mask-image: radial-gradient(1000px 700px at 45% 52%, #000 10%, transparent 80%);
+        -webkit-mask-image: radial-gradient(1000px 700px at 45% 52%, #000 10%, transparent 80%);
+      }
+
+      .title {
+        position: absolute;
+        left: 90px;
+        top: 64px;
+      }
+
+      .title h1 {
+        font-size: 64px;
+        font-weight: 700;
+        letter-spacing: -0.035em;
+        line-height: 1;
+        margin: 0;
+      }
+
+      .title p {
+        margin-top: 14px;
+        font-size: 28px;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        color: #8a9c92;
+      }
+
+      .chapter {
+        position: absolute;
+        right: 90px;
+        top: 74px;
+        font-size: 28px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        color: #8a9c92;
+        opacity: 0;
+      }
+
+      .chapter b {
+        color: #71f5a7;
+      }
+
+      .pitch-wrap {
+        position: absolute;
+        left: 90px;
+        top: 196px;
+        width: 1200px;
+        height: 778px;
+        opacity: 0;
+      }
+
+      #xt-pitch {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+      }
+
+      .card {
+        position: absolute;
+        right: 90px;
+        top: 186px;
+        width: 420px;
+        padding: 30px 32px 28px;
+        border: 1px solid rgba(113, 245, 167, 0.16);
+        border-radius: 18px;
+        background: linear-gradient(180deg, rgba(16, 29, 23, 0.92), rgba(8, 14, 11, 0.92));
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+      }
+
+      .kicker {
+        font-size: 28px;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        color: #7f9188;
+      }
+
+      .iter-row {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        margin-top: 8px;
+      }
+
+      .iter {
+        font-size: 96px;
+        font-weight: 700;
+        line-height: 0.9;
+        letter-spacing: -0.06em;
+        color: #71f5a7;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .iter-total {
+        font-size: 32px;
+        font-weight: 600;
+        color: #8a9c92;
+      }
+
+      .dmax {
+        margin-top: 18px;
+        padding-top: 18px;
+        border-top: 1px solid rgba(113, 245, 167, 0.14);
+      }
+
+      .dmax-label {
+        font-size: 28px;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        color: #7f9188;
+      }
+
+      .dmax-value {
+        margin-top: 4px;
+        font-size: 34px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        color: #f3f7f4;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .scale {
+        margin-top: 24px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(113, 245, 167, 0.14);
+        display: flex;
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      .scale-bar {
+        width: 14px;
+        height: 220px;
+        border-radius: 7px;
+        background: linear-gradient(
+          to top,
+          #0a1014 0%,
+          #0d2b33 15%,
+          #0e7490 35%,
+          #22d3ee 60%,
+          #a3e635 82%,
+          #fde047 100%
+        );
+        box-shadow: 0 0 24px rgba(34, 211, 238, 0.12);
+      }
+
+      .scale-meta {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 2px 0;
+      }
+
+      .scale-meta span {
+        font-size: 28px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        color: #8a9c92;
+      }
+
+      .scale-meta strong {
+        font-size: 30px;
+        font-weight: 600;
+        color: #f3f7f4;
+        font-variant-numeric: tabular-nums;
+      }
+
+
+
+      .note {
+        position: absolute;
+        left: 90px;
+        bottom: 70px;
+        font-size: 28px;
+        font-weight: 500;
+        color: #8a9c92;
+        letter-spacing: 0.02em;
+        opacity: 0;
+      }
+
+    </style>
+
+    <div id="xt-clip" class="clip" data-start="0" data-duration="4.2" data-track-index="0">
+      <div class="grid-bg"></div>
+
+      <div id="xt-title" class="title">
+        <h1>Expected Threat <span style="color:#71f5a7">(xT)</span></h1>
+        <p>Grilla 16 × 12 · La Liga 2017/18</p>
+      </div>
+
+      <div id="xt-chapter" class="chapter"><b>05</b> / xT</div>
+
+      <div id="xt-pitch-wrap" class="pitch-wrap">
+        <svg id="xt-pitch" viewBox="0 0 105 68" preserveAspectRatio="none" aria-hidden="true">
+          <g id="xt-cells"></g>
+          <g fill="none" stroke="#3a4656" stroke-width="0.16" stroke-linejoin="round">
+            <rect x="0" y="0" width="105" height="68"></rect>
+            <line x1="52.5" y1="0" x2="52.5" y2="68"></line>
+            <circle cx="52.5" cy="34" r="9.15"></circle>
+            <circle cx="52.5" cy="34" r="0.22" fill="#3a4656" stroke="none"></circle>
+            <rect x="0" y="13.84" width="16.5" height="40.32"></rect>
+            <rect x="88.5" y="13.84" width="16.5" height="40.32"></rect>
+            <rect x="0" y="24.84" width="5.5" height="18.32"></rect>
+            <rect x="99.5" y="24.84" width="5.5" height="18.32"></rect>
+            <circle cx="11" cy="34" r="0.22" fill="#3a4656" stroke="none"></circle>
+            <circle cx="94" cy="34" r="0.22" fill="#3a4656" stroke="none"></circle>
+            <path d="M 0 3.68 A 9.15 9.15 0 0 1 0 64.32"></path>
+            <path d="M 105 3.68 A 9.15 9.15 0 0 0 105 64.32"></path>
+          </g>
+          <g id="xt-hot" opacity="0">
+            <rect id="xt-hot-rect" x="98.4375" y="28.3333" width="6.5625" height="5.6667" fill="none" stroke="#fde047" stroke-width="0.34"></rect>
+            <circle id="xt-hot-pulse" cx="101.7188" cy="31.1667" r="1.2" fill="none" stroke="#fde047" stroke-width="0.18" opacity="0.9"></circle>
+          </g>
+        </svg>
+      </div>
+
+      <div id="xt-card" class="card">
+        <div class="kicker">ITERACIÓN</div>
+        <div class="iter-row">
+          <span id="xt-iter" class="iter">01</span>
+          <span class="iter-total">/ 12</span>
+        </div>
+        <div class="dmax">
+          <div class="dmax-label">Δ MÁXIMO</div>
+          <div id="xt-dmax" class="dmax-value">0,2234</div>
+        </div>
+        <div class="scale">
+          <div class="scale-bar"></div>
+          <div class="scale-meta">
+            <div><span>MÁX</span><br /><strong id="xt-max">0,269</strong></div>
+            <div><span>MÍN</span><br /><strong>0,000</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="xt-note" class="note">La amenaza se propaga desde el arco hacia atrás.</div>
+    </div>
+
+    <script>
+      (function () {
+        "use strict";
+
+        var DATA = (window.HF_DATA && window.HF_DATA.xt) || null;
+        var NM = DATA ? DATA.grid : { m: 16, n: 12 };
+        var MAX = DATA ? DATA.max : 0.269;
+        var ITERS = DATA ? DATA.iterations : [{ iter: 1, dmax: 0.2234, values: [] }];
+
+        var NS = "http://www.w3.org/2000/svg";
+        var cellsGroup = document.getElementById("xt-cells");
+        var pitchWrap = document.getElementById("xt-pitch-wrap");
+        var card = document.getElementById("xt-card");
+        var title = document.getElementById("xt-title");
+        var chapter = document.getElementById("xt-chapter");
+        var note = document.getElementById("xt-note");
+        var iterEl = document.getElementById("xt-iter");
+        var dmaxEl = document.getElementById("xt-dmax");
+        var maxEl = document.getElementById("xt-max");
+        var hot = document.getElementById("xt-hot");
+        var hotPulse = document.getElementById("xt-hot-pulse");
+
+        var CW = 105 / NM.m;
+        var CH = 68 / NM.n;
+        var cells = [];
+        var stops = [
+          [0.0, [10, 16, 20]],
+          [0.15, [13, 43, 51]],
+          [0.35, [14, 116, 144]],
+          [0.6, [34, 211, 238]],
+          [0.82, [163, 230, 53]],
+          [1.0, [253, 224, 71]],
+        ];
+
+        function colorAt(u) {
+          u = Math.max(0, Math.min(1, u));
+          for (var i = 1; i < stops.length; i += 1) {
+            if (u <= stops[i][0]) {
+              var a = stops[i - 1];
+              var b = stops[i];
+              var p = (u - a[0]) / (b[0] - a[0]);
+              var r = Math.round(a[1][0] + (b[1][0] - a[1][0]) * p);
+              var g = Math.round(a[1][1] + (b[1][1] - a[1][1]) * p);
+              var bl = Math.round(a[1][2] + (b[1][2] - a[1][2]) * p);
+              return "rgb(" + r + "," + g + "," + bl + ")";
+            }
+          }
+          return "rgb(253,224,71)";
+        }
+
+        for (var j = 0; j < NM.n; j += 1) {
+          for (var i = 0; i < NM.m; i += 1) {
+            var rect = document.createElementNS(NS, "rect");
+            rect.setAttribute("x", (i * CW).toFixed(4));
+            rect.setAttribute("y", ((NM.n - 1 - j) * CH).toFixed(4));
+            rect.setAttribute("width", CW.toFixed(4));
+            rect.setAttribute("height", CH.toFixed(4));
+            rect.setAttribute("fill", "#0a1014");
+            rect.setAttribute("stroke", "rgba(255,255,255,0.035)");
+            rect.setAttribute("stroke-width", "0.03");
+            cellsGroup.appendChild(rect);
+            cells.push(rect);
+          }
+        }
+
+        function gridAt(t) {
+          var lo = Math.max(0, Math.min(ITERS.length - 1, Math.floor(t)));
+          var hi = Math.min(ITERS.length - 1, lo + 1);
+          var p = Math.max(0, Math.min(1, t - lo));
+          var A = ITERS[lo].values;
+          var B = ITERS[hi].values;
+          return { A: A, B: B, p: p, lo: lo, hi: hi };
+        }
+
+        function render(t) {
+          var g = gridAt(t);
+          var idx = 0;
+          for (var j = 0; j < NM.n; j += 1) {
+            for (var i = 0; i < NM.m; i += 1) {
+              var va = g.A[j] && g.A[j][i] != null ? g.A[j][i] : 0;
+              var vb = g.B[j] && g.B[j][i] != null ? g.B[j][i] : va;
+              var v = va + (vb - va) * g.p;
+              cells[idx].setAttribute("fill", colorAt(v / MAX));
+              idx += 1;
+            }
+          }
+          var it = Math.min(ITERS.length, Math.floor(t) + 1);
+          iterEl.textContent = String(it).padStart(2, "0");
+          dmaxEl.textContent = Number(ITERS[it - 1].dmax).toFixed(4).replace(".", ",");
+        }
+
+        maxEl.textContent = Number(MAX).toFixed(3).replace(".", ",");
+
+        var state = { t: 0 };
+        var tl = gsap.timeline({ paused: true });
+
+        gsap.set(title, { opacity: 0, y: 18 });
+        gsap.set(pitchWrap, { opacity: 0, scale: 0.965 });
+        gsap.set(card, { opacity: 0, x: 24 });
+        gsap.set(hot, { opacity: 0 });
+
+        tl.to(title, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.02);
+        tl.to(chapter, { opacity: 1, duration: 0.4, ease: "power2.out" }, 0.12);
+        tl.to(pitchWrap, { opacity: 1, scale: 1, duration: 0.55, ease: "power3.out" }, 0.1);
+        tl.to(card, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 0.18);
+        tl.to(note, { opacity: 1, duration: 0.4, ease: "power2.out" }, 0.4);
+
+        tl.to(
+          state,
+          {
+            t: ITERS.length - 1,
+            duration: 2.35,
+            ease: "power2.inOut",
+            onUpdate: function () {
+              render(state.t);
+            },
+          },
+          0.55,
+        );
+
+        tl.to(hot, { opacity: 1, duration: 0.3, ease: "power2.out" }, 3.0);
+        tl.fromTo(
+          hotPulse,
+          { attr: { r: 1.2 }, opacity: 0.9 },
+          { attr: { r: 2.8 }, opacity: 0, duration: 0.8, ease: "power2.out" },
+          3.05,
+        );
+        tl.to({}, { duration: 0.4 }, 3.6);
+
+        tl.seek(0);
+        render(0);
+        window.__timelines = window.__timelines || {};
+        window.__timelines["xt"] = tl;
+      })();
+    </script>
+  </div>
+</template>

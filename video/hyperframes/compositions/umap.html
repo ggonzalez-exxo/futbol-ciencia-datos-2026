@@ -1,0 +1,358 @@
+<template>
+  <div id="root" data-composition-id="umap" data-width="1920" data-height="1080" data-duration="5.4" data-fps="30">
+    <style>
+      #root {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        background: radial-gradient(1200px 820px at 52% 50%, #0b1210 0%, #070b09 60%, #050706 100%);
+        color: #f3f7f4;
+        font-family: Inter, system-ui, sans-serif;
+      }
+
+      .clip {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+
+      .grid-bg {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
+        background-size: 80px 80px;
+        mask-image: radial-gradient(1100px 760px at 52% 52%, #000 10%, transparent 84%);
+        -webkit-mask-image: radial-gradient(1100px 760px at 52% 52%, #000 10%, transparent 84%);
+      }
+
+      .title {
+        position: absolute;
+        left: 90px;
+        top: 54px;
+      }
+
+      .title h1 {
+        font-size: 60px;
+        font-weight: 700;
+        letter-spacing: -0.035em;
+        line-height: 1;
+        margin: 0;
+      }
+
+      .title p {
+        margin-top: 14px;
+        font-size: 28px;
+        font-weight: 500;
+        color: #8a9c92;
+      }
+
+      .chapter {
+        position: absolute;
+        right: 90px;
+        top: 64px;
+        font-size: 28px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        color: #8a9c92;
+        opacity: 0;
+      }
+
+      .chapter b {
+        color: #71f5a7;
+      }
+
+      .plot-wrap {
+        position: absolute;
+        left: 90px;
+        top: 208px;
+        width: 1740px;
+        height: 720px;
+        opacity: 0;
+      }
+
+      #umap-plot {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      .cluster-label {
+        position: absolute;
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgba(6, 10, 8, 0.82);
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .cluster-label b {
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+
+      .cluster-label span {
+        font-size: 28px;
+        font-weight: 600;
+        color: #8a9c92;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .star {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        padding: 7px 13px;
+        border-radius: 999px;
+        background: rgba(6, 10, 8, 0.9);
+        border: 1px solid rgba(148, 163, 184, 0.16);
+        font-size: 28px;
+        font-weight: 600;
+        color: #f3f7f4;
+        opacity: 0;
+        white-space: nowrap;
+        pointer-events: none;
+      }
+
+      .star i {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #f3f7f4;
+        display: inline-block;
+        box-shadow: 0 0 16px rgba(255, 255, 255, 0.5);
+      }
+
+      .legend {
+        position: absolute;
+        left: 90px;
+        bottom: 52px;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        opacity: 0;
+      }
+
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 28px;
+        font-weight: 600;
+        color: #8a9c92;
+      }
+
+      .legend-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+
+    </style>
+
+    <div id="umap-clip" class="clip" data-start="0" data-duration="5.4" data-track-index="0">
+      <div class="grid-bg"></div>
+
+      <div id="umap-title" class="title">
+        <h1>UMAP — espacio de jugadores</h1>
+        <p>1.201 jugadores · K-Means (k=4) · 21 features · mismos arquetipos en las tres ligas</p>
+      </div>
+
+      <div id="umap-chapter" class="chapter"><b>05</b> / CLUSTERS</div>
+
+      <div id="umap-plot-wrap" class="plot-wrap">
+        <svg id="umap-plot" viewBox="0 0 1740 720" preserveAspectRatio="none" aria-hidden="true">
+          <g id="umap-points"></g>
+          <g id="umap-rings"></g>
+        </svg>
+      </div>
+
+      <div id="umap-label-0" class="cluster-label"><b>Finalizadores</b><span>322</span></div>
+      <div id="umap-label-1" class="cluster-label"><b>Defensores / volantes</b><span>629</span></div>
+      <div id="umap-label-2" class="cluster-label"><b>Arqueros</b><span>80</span></div>
+      <div id="umap-label-3" class="cluster-label"><b>Creadores</b><span>170</span></div>
+
+      <div id="umap-star-3359" class="star"><i></i>Messi</div>
+      <div id="umap-star-3322" class="star"><i></i>Cristiano</div>
+
+      <div id="umap-legend" class="legend">
+        <div class="legend-item"><span class="legend-dot" style="background:#F59E0B"></span>Finalizadores</div>
+        <div class="legend-item"><span class="legend-dot" style="background:#22D3EE"></span>Defensores / volantes</div>
+        <div class="legend-item"><span class="legend-dot" style="background:#94A3B8"></span>Arqueros</div>
+        <div class="legend-item"><span class="legend-dot" style="background:#22C55E"></span>Creadores</div>
+      </div>
+
+    </div>
+
+    <script>
+      (function () {
+        "use strict";
+
+        var DATA = (window.HF_DATA && window.HF_DATA.umap) || null;
+        var PLAYERS = DATA ? DATA.players : [];
+        var CLUSTERS = DATA ? DATA.clusters : {
+          0: { name: "Finalizadores", color: "#F59E0B" },
+          1: { name: "Defensores / volantes", color: "#22D3EE" },
+          2: { name: "Arqueros", color: "#94A3B8" },
+          3: { name: "Creadores", color: "#22C55E" },
+        };
+
+        var NS = "http://www.w3.org/2000/svg";
+        var PLOT_W = 1740;
+        var PLOT_H = 720;
+        var pointsGroup = document.getElementById("umap-points");
+        var ringsGroup = document.getElementById("umap-rings");
+        var plotWrap = document.getElementById("umap-plot-wrap");
+        var legend = document.getElementById("umap-legend");
+        var title = document.getElementById("umap-title");
+        var chapter = document.getElementById("umap-chapter");
+
+        var xmin = Infinity, xmax = -Infinity, ymin = Infinity, ymax = -Infinity;
+        PLAYERS.forEach(function (p) {
+          if (p.x < xmin) xmin = p.x;
+          if (p.x > xmax) xmax = p.x;
+          if (p.y < ymin) ymin = p.y;
+          if (p.y > ymax) ymax = p.y;
+        });
+        var dw = Math.max(1e-6, xmax - xmin);
+        var dh = Math.max(1e-6, ymax - ymin);
+        var pad = 0.07;
+        var scale = Math.min((PLOT_W * (1 - pad * 2)) / dw, (PLOT_H * (1 - pad * 2)) / dh);
+        var ox = (PLOT_W - dw * scale) / 2;
+        var oy = (PLOT_H - dh * scale) / 2;
+
+        function sx(p) { return ox + (p.x - xmin) * scale; }
+        function sy(p) { return oy + (ymax - p.y) * scale; }
+
+        var byCluster = { 0: [], 1: [], 2: [], 3: [] };
+        var nodes = new Map();
+        PLAYERS.forEach(function (p) {
+          var c = document.createElementNS(NS, "circle");
+          c.setAttribute("cx", sx(p).toFixed(2));
+          c.setAttribute("cy", sy(p).toFixed(2));
+          c.setAttribute("r", "0");
+          c.setAttribute("fill", (CLUSTERS[p.cluster] || CLUSTERS[0]).color);
+          c.setAttribute("opacity", "0");
+          pointsGroup.appendChild(c);
+          nodes.set(p.id, c);
+          (byCluster[p.cluster] || byCluster[0]).push(p);
+        });
+
+        Object.keys(byCluster).forEach(function (k) {
+          byCluster[k].sort(function (a, b) { return a.x - b.x; });
+        });
+
+        function reveal(k, progress) {
+          var list = byCluster[k];
+          var n = Math.floor(list.length * progress);
+          for (var i = 0; i < list.length; i += 1) {
+            var node = nodes.get(list[i].id);
+            if (i < n) {
+              node.setAttribute("r", "4.6");
+              node.setAttribute("opacity", "0.92");
+            } else {
+              node.setAttribute("r", "0");
+              node.setAttribute("opacity", "0");
+            }
+          }
+        }
+
+        function centerOf(k) {
+          var list = byCluster[k];
+          if (!list.length) return { x: 0, y: 0 };
+          var mx = 0, my = 0;
+          list.forEach(function (p) { mx += p.x; my += p.y; });
+          return { x: mx / list.length, y: my / list.length };
+        }
+
+        var labelOffsets = { 0: -58, 1: 58, 2: -44, 3: -48 };
+        Object.keys(byCluster).forEach(function (k) {
+          var c = centerOf(k);
+          var el = document.getElementById("umap-label-" + k);
+          var left = 90 + ox + (c.x - xmin) * scale;
+          var top = 208 + oy + (ymax - c.y) * scale + labelOffsets[k];
+          el.style.left = left.toFixed(1) + "px";
+          el.style.top = top.toFixed(1) + "px";
+          el.style.borderColor = (CLUSTERS[k] || CLUSTERS[0]).color + "66";
+          el.querySelector("b").style.color = (CLUSTERS[k] || CLUSTERS[0]).color;
+        });
+
+        var stars = [
+          { id: 3359, dx: 0, dy: -48 },
+          { id: 3322, dx: 0, dy: 52 },
+        ];
+        stars.forEach(function (s) {
+          var p = null;
+          for (var i = 0; i < PLAYERS.length; i += 1) {
+            if (PLAYERS[i].id === s.id) { p = PLAYERS[i]; break; }
+          }
+          if (!p) return;
+          var el = document.getElementById("umap-star-" + s.id);
+          if (!el) return;
+          el.style.left = (90 + sx(p) + s.dx).toFixed(1) + "px";
+          el.style.top = (208 + sy(p) + s.dy).toFixed(1) + "px";
+
+          var ring = document.createElementNS(NS, "circle");
+          ring.setAttribute("cx", sx(p).toFixed(2));
+          ring.setAttribute("cy", sy(p).toFixed(2));
+          ring.setAttribute("r", "10");
+          ring.setAttribute("fill", "none");
+          ring.setAttribute("stroke", "#f3f7f4");
+          ring.setAttribute("stroke-width", "1.6");
+          ring.setAttribute("opacity", "0");
+          ringsGroup.appendChild(ring);
+          el.dataset.ring = "1";
+          el._ring = ring;
+        });
+
+        gsap.set(title, { opacity: 0, y: 16 });
+        gsap.set(plotWrap, { opacity: 0, scale: 0.985 });
+        gsap.set(legend, { opacity: 0, y: 10 });
+        gsap.set(".cluster-label", { xPercent: -50, yPercent: -50, opacity: 0, y: 8 });
+        gsap.set(".star", { opacity: 0 });
+
+        var p0 = { v: 0 }, p1 = { v: 0 }, p2 = { v: 0 }, p3 = { v: 0 };
+        var tl = gsap.timeline({ paused: true });
+
+        tl.to(title, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.02);
+        tl.to(chapter, { opacity: 1, duration: 0.4, ease: "power2.out" }, 0.12);
+        tl.to(plotWrap, { opacity: 1, scale: 1, duration: 0.55, ease: "power3.out" }, 0.1);
+        tl.to(legend, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, 0.45);
+
+        tl.to(p0, { v: 1, duration: 0.72, ease: "power2.out", onUpdate: function () { reveal(0, p0.v); } }, 0.5);
+        tl.to(p1, { v: 1, duration: 0.95, ease: "power2.out", onUpdate: function () { reveal(1, p1.v); } }, 0.95);
+        tl.to(p2, { v: 1, duration: 0.55, ease: "power2.out", onUpdate: function () { reveal(2, p2.v); } }, 1.55);
+        tl.to(p3, { v: 1, duration: 0.8, ease: "power2.out", onUpdate: function () { reveal(3, p3.v); } }, 1.95);
+
+        tl.to("#umap-label-0", { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 1.12);
+        tl.to("#umap-label-1", { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 1.82);
+        tl.to("#umap-label-2", { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 2.02);
+        tl.to("#umap-label-3", { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 2.68);
+
+        gsap.utils.toArray(".star").forEach(function (el, i) {
+          tl.to(el, { opacity: 1, duration: 0.24, ease: "power2.out" }, 2.75 + i * 0.06);
+          if (el._ring) {
+            tl.to(el._ring, { attr: { opacity: 0.85 }, duration: 0.24, ease: "power2.out" }, 2.75 + i * 0.06);
+          }
+        });
+
+        tl.to({}, { duration: 1.75 }, 3.65);
+
+        tl.seek(0);
+        window.__timelines = window.__timelines || {};
+        window.__timelines["umap"] = tl;
+      })();
+    </script>
+  </div>
+</template>

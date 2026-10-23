@@ -1,0 +1,254 @@
+<template>
+  <div id="root" data-composition-id="counter" data-width="1920" data-height="1080" data-duration="3.2" data-fps="30">
+    <style>
+      #root {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        background:
+          radial-gradient(1100px 700px at 50% 48%, #0f1a15 0%, #0a100d 55%, #060906 100%);
+        color: #f3f7f4;
+        font-family: Inter, system-ui, sans-serif;
+      }
+
+      .clip {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+
+      .grid {
+        position: absolute;
+        inset: -1px;
+        background-image:
+          linear-gradient(rgba(113, 245, 167, 0.055) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(113, 245, 167, 0.055) 1px, transparent 1px);
+        background-size: 80px 80px;
+        mask-image: radial-gradient(900px 560px at 50% 52%, #000 10%, transparent 78%);
+        -webkit-mask-image: radial-gradient(900px 560px at 50% 52%, #000 10%, transparent 78%);
+      }
+
+      .kicker {
+        position: absolute;
+        left: 96px;
+        top: 74px;
+        font-size: 28px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        color: #8a9c92;
+        opacity: 0;
+      }
+
+      .chapter {
+        position: absolute;
+        right: 96px;
+        top: 74px;
+        font-size: 28px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        color: #8a9c92;
+        opacity: 0;
+      }
+
+      .chapter b {
+        color: #71f5a7;
+        font-weight: 700;
+      }
+
+      .stage {
+        position: absolute;
+        left: 50%;
+        top: 49%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        text-align: center;
+      }
+
+      .value {
+        display: block;
+        font-size: 236px;
+        font-weight: 700;
+        line-height: 0.94;
+        letter-spacing: -0.055em;
+        font-variant-numeric: tabular-nums;
+        font-feature-settings: "tnum" 1;
+        color: #f3f7f4;
+        text-shadow: 0 10px 60px rgba(0, 0, 0, 0.55);
+        white-space: nowrap;
+      }
+
+      .caption {
+        margin-top: 30px;
+        font-size: 36px;
+        font-weight: 500;
+        letter-spacing: 0.01em;
+        color: #71f5a7;
+        opacity: 0;
+      }
+
+      .ticker {
+        position: absolute;
+        left: 50%;
+        bottom: 152px;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        font-size: 28px;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        color: #8a9c92;
+        white-space: nowrap;
+      }
+
+      .ticker span {
+        opacity: 0;
+        display: inline-block;
+      }
+
+      .ticker i {
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: #71f5a7;
+        opacity: 0.55;
+        display: inline-block;
+      }
+
+      .bottom {
+        position: absolute;
+        left: 96px;
+        right: 96px;
+        bottom: 76px;
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+
+      .source {
+        font-size: 28px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        color: #8a9c92;
+        white-space: nowrap;
+        opacity: 0;
+      }
+
+      .rule {
+        position: relative;
+        flex: 1;
+        height: 2px;
+        background: rgba(113, 245, 167, 0.14);
+        overflow: hidden;
+      }
+
+      .rule-fill {
+        position: absolute;
+        inset: 0;
+        background: #71f5a7;
+        transform-origin: 0 50%;
+        transform: scaleX(0);
+        box-shadow: 0 0 18px rgba(113, 245, 167, 0.55);
+      }
+
+    </style>
+
+    <div id="counter-clip" class="clip" data-start="0" data-duration="3.2" data-track-index="0">
+      <div class="grid"></div>
+
+      <div id="counter-kicker" class="kicker">DIPLODATOS 2026 · MENTORÍA FÚTBOL</div>
+      <div id="counter-chapter" class="chapter"><b>01</b> / INTRO</div>
+
+      <div class="stage">
+        <span id="counter-value" class="value" data-layout-allow-overflow>0</span>
+        <div id="counter-caption" class="caption">eventos de juego registrados</div>
+      </div>
+
+      <div id="counter-ticker" class="ticker">
+        <span>PASS</span><i></i>
+        <span>SHOT</span><i></i>
+        <span>DRIBBLE</span><i></i>
+        <span>TACKLE</span><i></i>
+        <span>INTERCEPTION</span><i></i>
+        <span>CROSS</span>
+      </div>
+
+      <div class="bottom">
+        <div id="counter-source" class="source">TEMPORADA 2017/18 · WYSCOUT</div>
+        <div class="rule"><div id="counter-rule" class="rule-fill"></div></div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        "use strict";
+
+        var TOTAL = 3251294;
+        var DURATION = 3.2;
+        var COUNT_START = 0.28;
+        var COUNT_DURATION = 1.62;
+        var FPS = 30;
+
+        var valueEl = document.getElementById("counter-value");
+        var kicker = document.getElementById("counter-kicker");
+        var chapter = document.getElementById("counter-chapter");
+        var caption = document.getElementById("counter-caption");
+        var ticker = document.getElementById("counter-ticker");
+        var source = document.getElementById("counter-source");
+        var rule = document.getElementById("counter-rule");
+
+        function formatNumber(n) {
+          return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+
+        var lastFrame = Math.round(COUNT_DURATION * FPS);
+        var ease = gsap.parseEase("sine.inOut");
+        var rows = [];
+        for (var f = 0; f <= lastFrame; f += 1) {
+          var p = f / lastFrame;
+          rows.push(formatNumber(TOTAL * ease(p)));
+        }
+        rows[rows.length - 1] = formatNumber(TOTAL);
+
+        gsap.set(valueEl, { y: 26, scale: 0.985 });
+        gsap.set(ticker.querySelectorAll("span"), { y: 14, opacity: 0 });
+
+        var tl = gsap.timeline({ paused: true });
+
+        tl.to(kicker, { opacity: 1, y: 0, duration: 0.38, ease: "power3.out" }, 0.02);
+        tl.to(chapter, { opacity: 1, duration: 0.38, ease: "power3.out" }, 0.08);
+
+        tl.to(valueEl, { y: 0, scale: 1, duration: 0.34, ease: "power3.out" }, 0.18);
+
+        rows.forEach(function (row, i) {
+          tl.set(valueEl, { textContent: row }, COUNT_START + COUNT_DURATION * (i / lastFrame));
+        });
+
+        tl.to(valueEl, { scale: 1.035, duration: 0.14, ease: "power3.out" }, COUNT_START + COUNT_DURATION);
+        tl.to(valueEl, { scale: 1, duration: 0.22, ease: "power2.out" }, COUNT_START + COUNT_DURATION + 0.14);
+
+        tl.to(caption, { opacity: 1, y: 0, duration: 0.42, ease: "power3.out" }, COUNT_START + 0.42);
+
+        var words = ticker.querySelectorAll("span");
+        words.forEach(function (word, i) {
+          tl.to(word, {
+            opacity: 1,
+            y: 0,
+            duration: 0.3,
+            ease: "power4.out",
+          }, 0.52 + i * 0.055);
+        });
+        tl.to(ticker.querySelectorAll("i"), { opacity: 0.55, duration: 0.24, ease: "power2.out" }, 0.62);
+
+        tl.to(source, { opacity: 1, duration: 0.38, ease: "power2.out" }, 0.7);
+        tl.to(rule, { scaleX: 1, duration: COUNT_DURATION, ease: "sine.inOut" }, COUNT_START);
+
+        tl.to({}, { duration: 0.6 }, 2.55);
+
+        tl.seek(0);
+        window.__timelines = window.__timelines || {};
+        window.__timelines["counter"] = tl;
+      })();
+    </script>
+  </div>
+</template>

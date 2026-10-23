@@ -5,9 +5,8 @@
         position: absolute;
         inset: 0;
         overflow: hidden;
-        background:
-          radial-gradient(1100px 700px at 50% 48%, #0f1a15 0%, #0a100d 55%, #060906 100%);
-        color: #f3f7f4;
+        background: radial-gradient(1200px 760px at 50% 48%, #171c20 0%, #0d1013 58%, #090b0d 100%);
+        color: #f2f4f3;
         font-family: Inter, system-ui, sans-serif;
       }
 
@@ -17,25 +16,14 @@
         overflow: hidden;
       }
 
-      .grid {
-        position: absolute;
-        inset: -1px;
-        background-image:
-          linear-gradient(rgba(113, 245, 167, 0.055) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(113, 245, 167, 0.055) 1px, transparent 1px);
-        background-size: 80px 80px;
-        mask-image: radial-gradient(900px 560px at 50% 52%, #000 10%, transparent 78%);
-        -webkit-mask-image: radial-gradient(900px 560px at 50% 52%, #000 10%, transparent 78%);
-      }
-
       .kicker {
         position: absolute;
         left: 96px;
         top: 74px;
         font-size: 28px;
         font-weight: 600;
-        letter-spacing: 0.18em;
-        color: #8a9c92;
+        letter-spacing: 0.14em;
+        color: #93a0a8;
         opacity: 0;
       }
 
@@ -45,14 +33,13 @@
         top: 74px;
         font-size: 28px;
         font-weight: 600;
-        letter-spacing: 0.18em;
-        color: #8a9c92;
+        letter-spacing: 0.14em;
+        color: #93a0a8;
         opacity: 0;
       }
 
       .chapter b {
-        color: #71f5a7;
-        font-weight: 700;
+        color: #f2b544;
       }
 
       .stage {
@@ -66,38 +53,38 @@
 
       .value {
         display: block;
-        font-size: 236px;
+        font-size: 248px;
         font-weight: 700;
         line-height: 0.94;
         letter-spacing: -0.055em;
         font-variant-numeric: tabular-nums;
         font-feature-settings: "tnum" 1;
-        color: #f3f7f4;
-        text-shadow: 0 10px 60px rgba(0, 0, 0, 0.55);
+        color: #f2f4f3;
+        text-shadow: 0 12px 70px rgba(0, 0, 0, 0.6);
         white-space: nowrap;
       }
 
       .caption {
-        margin-top: 30px;
+        margin-top: 28px;
         font-size: 36px;
         font-weight: 500;
         letter-spacing: 0.01em;
-        color: #71f5a7;
+        color: #f2b544;
         opacity: 0;
       }
 
       .ticker {
         position: absolute;
         left: 50%;
-        bottom: 152px;
+        bottom: 150px;
         transform: translateX(-50%);
         display: flex;
         align-items: center;
-        gap: 20px;
+        gap: 18px;
         font-size: 28px;
-        font-weight: 600;
-        letter-spacing: 0.16em;
-        color: #8a9c92;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        color: #93a0a8;
         white-space: nowrap;
       }
 
@@ -110,8 +97,8 @@
         width: 4px;
         height: 4px;
         border-radius: 50%;
-        background: #71f5a7;
-        opacity: 0.55;
+        background: #f2b544;
+        opacity: 0.6;
         display: inline-block;
       }
 
@@ -128,8 +115,8 @@
       .source {
         font-size: 28px;
         font-weight: 500;
-        letter-spacing: 0.08em;
-        color: #8a9c92;
+        letter-spacing: 0.06em;
+        color: #93a0a8;
         white-space: nowrap;
         opacity: 0;
       }
@@ -138,24 +125,20 @@
         position: relative;
         flex: 1;
         height: 2px;
-        background: rgba(113, 245, 167, 0.14);
+        background: rgba(147, 160, 168, 0.18);
         overflow: hidden;
       }
 
       .rule-fill {
         position: absolute;
         inset: 0;
-        background: #71f5a7;
+        background: #f2b544;
         transform-origin: 0 50%;
         transform: scaleX(0);
-        box-shadow: 0 0 18px rgba(113, 245, 167, 0.55);
       }
-
     </style>
 
     <div id="counter-clip" class="clip" data-start="0" data-duration="3.2" data-track-index="0">
-      <div class="grid"></div>
-
       <div id="counter-kicker" class="kicker">DIPLODATOS 2026 · MENTORÍA FÚTBOL</div>
       <div id="counter-chapter" class="chapter"><b>01</b> / INTRO</div>
 
@@ -168,9 +151,7 @@
         <span>PASS</span><i></i>
         <span>SHOT</span><i></i>
         <span>DRIBBLE</span><i></i>
-        <span>TACKLE</span><i></i>
-        <span>INTERCEPTION</span><i></i>
-        <span>CROSS</span>
+        <span>TACKLE</span>
       </div>
 
       <div class="bottom">
@@ -184,7 +165,6 @@
         "use strict";
 
         var TOTAL = 3251294;
-        var DURATION = 3.2;
         var COUNT_START = 0.28;
         var COUNT_DURATION = 1.62;
         var FPS = 30;
@@ -217,7 +197,6 @@
 
         tl.to(kicker, { opacity: 1, y: 0, duration: 0.38, ease: "power3.out" }, 0.02);
         tl.to(chapter, { opacity: 1, duration: 0.38, ease: "power3.out" }, 0.08);
-
         tl.to(valueEl, { y: 0, scale: 1, duration: 0.34, ease: "power3.out" }, 0.18);
 
         rows.forEach(function (row, i) {
@@ -227,22 +206,15 @@
         tl.to(valueEl, { scale: 1.035, duration: 0.14, ease: "power3.out" }, COUNT_START + COUNT_DURATION);
         tl.to(valueEl, { scale: 1, duration: 0.22, ease: "power2.out" }, COUNT_START + COUNT_DURATION + 0.14);
 
-        tl.to(caption, { opacity: 1, y: 0, duration: 0.42, ease: "power3.out" }, COUNT_START + 0.42);
+        tl.to(caption, { opacity: 1, duration: 0.42, ease: "power3.out" }, COUNT_START + 0.42);
 
-        var words = ticker.querySelectorAll("span");
-        words.forEach(function (word, i) {
-          tl.to(word, {
-            opacity: 1,
-            y: 0,
-            duration: 0.3,
-            ease: "power4.out",
-          }, 0.52 + i * 0.055);
+        ticker.querySelectorAll("span").forEach(function (word, i) {
+          tl.to(word, { opacity: 1, y: 0, duration: 0.3, ease: "power4.out" }, 0.58 + i * 0.07);
         });
-        tl.to(ticker.querySelectorAll("i"), { opacity: 0.55, duration: 0.24, ease: "power2.out" }, 0.62);
+        tl.to(ticker.querySelectorAll("i"), { opacity: 0.6, duration: 0.24, ease: "power2.out" }, 0.7);
 
         tl.to(source, { opacity: 1, duration: 0.38, ease: "power2.out" }, 0.7);
         tl.to(rule, { scaleX: 1, duration: COUNT_DURATION, ease: "sine.inOut" }, COUNT_START);
-
         tl.to({}, { duration: 0.6 }, 2.55);
 
         tl.seek(0);

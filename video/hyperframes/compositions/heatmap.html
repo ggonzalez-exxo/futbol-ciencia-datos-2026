@@ -5,8 +5,8 @@
         position: absolute;
         inset: 0;
         overflow: hidden;
-        background: radial-gradient(1200px 800px at 50% 54%, #0c1118 0%, #070a0d 60%, #050607 100%);
-        color: #f3f7f4;
+        background: radial-gradient(1200px 800px at 50% 54%, #171c20 0%, #0d1013 60%, #090b0d 100%);
+        color: #f2f4f3;
         font-family: Inter, system-ui, sans-serif;
       }
 
@@ -14,17 +14,6 @@
         position: absolute;
         inset: 0;
         overflow: hidden;
-      }
-
-      .grid-bg {
-        position: absolute;
-        inset: 0;
-        background-image:
-          linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
-        background-size: 80px 80px;
-        mask-image: radial-gradient(1100px 720px at 50% 54%, #000 10%, transparent 82%);
-        -webkit-mask-image: radial-gradient(1100px 720px at 50% 54%, #000 10%, transparent 82%);
       }
 
       .title {
@@ -39,13 +28,14 @@
         letter-spacing: -0.035em;
         line-height: 1;
         margin: 0;
+        color: #f2f4f3;
       }
 
       .title p {
         margin-top: 14px;
         font-size: 28px;
         font-weight: 500;
-        color: #8a9c92;
+        color: #93a0a8;
       }
 
       .chapter {
@@ -54,18 +44,18 @@
         top: 66px;
         font-size: 28px;
         font-weight: 600;
-        letter-spacing: 0.18em;
-        color: #8a9c92;
+        letter-spacing: 0.14em;
+        color: #93a0a8;
         opacity: 0;
       }
 
       .chapter b {
-        color: #a3e635;
+        color: #f2b544;
       }
 
       .panels {
         position: absolute;
-        left: 60px;
+        left: 80px;
         top: 214px;
         display: flex;
         gap: 120px;
@@ -81,57 +71,55 @@
         align-items: baseline;
         justify-content: space-between;
         margin-bottom: 12px;
-        padding: 0 6px;
+        padding: 0 4px;
       }
 
       .panel-name {
         font-size: 38px;
         font-weight: 700;
         letter-spacing: -0.03em;
+        color: #f2f4f3;
       }
 
       .panel-tag {
         font-size: 28px;
         font-weight: 600;
         letter-spacing: 0.08em;
-        color: #8a9c92;
+        color: #93a0a8;
       }
 
       .panel-tag b {
-        color: #a3e635;
+        color: #f2b544;
       }
 
       .pitch {
         width: 820px;
         height: 531px;
         display: block;
-        border-radius: 6px;
-        background: #080c10;
-        box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.14), 0 30px 80px rgba(0, 0, 0, 0.35);
       }
 
       .panel-foot {
         display: flex;
         align-items: baseline;
-        justify-content: space-between;
-        margin-top: 14px;
-        padding: 0 6px;
+        gap: 36px;
+        margin-top: 16px;
+        padding: 0 4px;
       }
 
       .stat {
         font-size: 28px;
         font-weight: 600;
-        color: #8a9c92;
+        color: #93a0a8;
         font-variant-numeric: tabular-nums;
       }
 
       .stat strong {
-        color: #f3f7f4;
+        color: #f2f4f3;
         font-weight: 700;
       }
 
       .stat.accent strong {
-        color: #a3e635;
+        color: #f2b544;
       }
 
       .legend {
@@ -148,23 +136,21 @@
       .legend-label {
         font-size: 28px;
         font-weight: 600;
-        letter-spacing: 0.16em;
-        color: #8a9c92;
+        letter-spacing: 0.14em;
+        color: #93a0a8;
       }
 
       .legend-bar {
         width: 460px;
-        height: 16px;
-        border-radius: 8px;
+        height: 14px;
+        border-radius: 7px;
         background: linear-gradient(
           to right,
-          #0b1020 0%,
-          #2a1a5e 16%,
-          #3b2f8f 32%,
-          #1f7a8c 52%,
-          #2bb673 70%,
-          #a3e635 86%,
-          #fde047 100%
+          #440154 0%,
+          #3b528b 25%,
+          #21918c 50%,
+          #5ec962 75%,
+          #fde725 100%
         );
       }
 
@@ -172,13 +158,11 @@
       .legend-max {
         font-size: 28px;
         font-weight: 600;
-        color: #7f9188;
+        color: #93a0a8;
       }
     </style>
 
     <div id="hm-clip" class="clip" data-start="0" data-duration="4.2" data-track-index="0">
-      <div class="grid-bg"></div>
-
       <div id="hm-title" class="title">
         <h1>Zonas calientes de generación de valor</h1>
         <p>VAEP ofensivo por zona · temporada 2017/18</p>
@@ -193,8 +177,15 @@
             <span class="panel-tag"><b>138</b> acciones top</span>
           </div>
           <svg id="hm-pitch-0" class="pitch" viewBox="0 0 105 68" preserveAspectRatio="none" aria-hidden="true">
-            <g id="hm-cells-0"></g>
-            <g fill="none" stroke="#3a4656" stroke-width="0.16" stroke-linejoin="round">
+            <defs>
+              <filter id="hm-blur-0" x="-4%" y="-4%" width="108%" height="108%">
+                <feGaussianBlur stdDeviation="0.9"></feGaussianBlur>
+              </filter>
+              <clipPath id="hm-clip-0"><rect x="0" y="0" width="105" height="68"></rect></clipPath>
+            </defs>
+            <rect x="0" y="0" width="105" height="68" fill="#10161b"></rect>
+            <g clip-path="url(#hm-clip-0)"><g id="hm-cells-0" filter="url(#hm-blur-0)"></g></g>
+            <g fill="none" stroke="rgba(242,244,243,0.25)" stroke-width="0.2" stroke-linejoin="round">
               <rect x="0" y="0" width="105" height="68"></rect>
               <line x1="52.5" y1="0" x2="52.5" y2="68"></line>
               <circle cx="52.5" cy="34" r="9.15"></circle>
@@ -202,8 +193,8 @@
               <rect x="88.5" y="13.84" width="16.5" height="40.32"></rect>
               <rect x="0" y="24.84" width="5.5" height="18.32"></rect>
               <rect x="99.5" y="24.84" width="5.5" height="18.32"></rect>
-              <circle cx="11" cy="34" r="0.22" fill="#3a4656" stroke="none"></circle>
-              <circle cx="94" cy="34" r="0.22" fill="#3a4656" stroke="none"></circle>
+              <circle cx="11" cy="34" r="0.22" fill="rgba(242,244,243,0.25)" stroke="none"></circle>
+              <circle cx="94" cy="34" r="0.22" fill="rgba(242,244,243,0.25)" stroke="none"></circle>
             </g>
           </svg>
           <div class="panel-foot">
@@ -218,8 +209,15 @@
             <span class="panel-tag"><b>60</b> acciones top</span>
           </div>
           <svg id="hm-pitch-1" class="pitch" viewBox="0 0 105 68" preserveAspectRatio="none" aria-hidden="true">
-            <g id="hm-cells-1"></g>
-            <g fill="none" stroke="#3a4656" stroke-width="0.16" stroke-linejoin="round">
+            <defs>
+              <filter id="hm-blur-1" x="-4%" y="-4%" width="108%" height="108%">
+                <feGaussianBlur stdDeviation="0.9"></feGaussianBlur>
+              </filter>
+              <clipPath id="hm-clip-1"><rect x="0" y="0" width="105" height="68"></rect></clipPath>
+            </defs>
+            <rect x="0" y="0" width="105" height="68" fill="#10161b"></rect>
+            <g clip-path="url(#hm-clip-1)"><g id="hm-cells-1" filter="url(#hm-blur-1)"></g></g>
+            <g fill="none" stroke="rgba(242,244,243,0.25)" stroke-width="0.2" stroke-linejoin="round">
               <rect x="0" y="0" width="105" height="68"></rect>
               <line x1="52.5" y1="0" x2="52.5" y2="68"></line>
               <circle cx="52.5" cy="34" r="9.15"></circle>
@@ -227,8 +225,8 @@
               <rect x="88.5" y="13.84" width="16.5" height="40.32"></rect>
               <rect x="0" y="24.84" width="5.5" height="18.32"></rect>
               <rect x="99.5" y="24.84" width="5.5" height="18.32"></rect>
-              <circle cx="11" cy="34" r="0.22" fill="#3a4656" stroke="none"></circle>
-              <circle cx="94" cy="34" r="0.22" fill="#3a4656" stroke="none"></circle>
+              <circle cx="11" cy="34" r="0.22" fill="rgba(242,244,243,0.25)" stroke="none"></circle>
+              <circle cx="94" cy="34" r="0.22" fill="rgba(242,244,243,0.25)" stroke="none"></circle>
             </g>
           </svg>
           <div class="panel-foot">
@@ -265,13 +263,11 @@
           { cells: [], values: PANELS[1].values || [] },
         ];
         var stops = [
-          [0.0, [11, 16, 32]],
-          [0.16, [42, 26, 94]],
-          [0.32, [59, 47, 143]],
-          [0.52, [31, 122, 140]],
-          [0.7, [43, 182, 115]],
-          [0.86, [163, 230, 53]],
-          [1.0, [253, 224, 71]],
+          [0.0, [68, 1, 84]],
+          [0.25, [59, 82, 139]],
+          [0.5, [33, 145, 140]],
+          [0.75, [94, 201, 98]],
+          [1.0, [253, 231, 37]],
         ];
 
         function colorAt(u) {
@@ -287,7 +283,7 @@
               return "rgb(" + r + "," + g + "," + bl + ")";
             }
           }
-          return "rgb(253,224,71)";
+          return "rgb(253,231,37)";
         }
 
         for (var k = 0; k < 2; k += 1) {
@@ -299,9 +295,8 @@
               rect.setAttribute("y", ((NM.n - 1 - j) * CH).toFixed(4));
               rect.setAttribute("width", CW.toFixed(4));
               rect.setAttribute("height", CH.toFixed(4));
-              rect.setAttribute("fill", "#080c10");
-              rect.setAttribute("stroke", "rgba(255,255,255,0.03)");
-              rect.setAttribute("stroke-width", "0.03");
+              rect.setAttribute("fill", "#440154");
+              rect.setAttribute("fill-opacity", "0");
               group.appendChild(rect);
               panels[k].cells.push(rect);
             }
@@ -321,16 +316,21 @@
           }
         }
 
+        var WINDOW = 0.22;
         function render(t) {
-          var thr = lo + (hi - lo + 0.0001) * Math.max(0, Math.min(1, t));
+          var r = Math.max(0, Math.min(1, t));
           for (var k = 0; k < 2; k += 1) {
             var values = panels[k].values;
             var idx = 0;
             for (var j = 0; j < NM.n; j += 1) {
               for (var i = 0; i < NM.m; i += 1) {
                 var v = values[j] && values[j][i] != null ? values[j][i] : 0;
-                var fill = v <= thr ? colorAt(v) : "#080c10";
-                panels[k].cells[idx].setAttribute("fill", fill);
+                var norm = hi > lo ? (v - lo) / (hi - lo) : 0;
+                var cellAt = 1 - norm;
+                var o = Math.max(0, Math.min(1, (r - cellAt) / WINDOW));
+                var cell = panels[k].cells[idx];
+                cell.setAttribute("fill", colorAt(norm));
+                cell.setAttribute("fill-opacity", o.toFixed(3));
                 idx += 1;
               }
             }

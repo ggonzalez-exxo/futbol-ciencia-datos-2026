@@ -5,8 +5,8 @@
         position: absolute;
         inset: 0;
         overflow: hidden;
-        background: radial-gradient(1200px 760px at 42% 50%, #0b1512 0%, #070d0a 58%, #050806 100%);
-        color: #f3f7f4;
+        background: radial-gradient(1200px 760px at 42% 50%, #171c20 0%, #0d1013 58%, #090b0d 100%);
+        color: #f2f4f3;
         font-family: Inter, system-ui, sans-serif;
       }
 
@@ -14,17 +14,6 @@
         position: absolute;
         inset: 0;
         overflow: hidden;
-      }
-
-      .grid-bg {
-        position: absolute;
-        inset: 0;
-        background-image:
-          linear-gradient(rgba(113, 245, 167, 0.045) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(113, 245, 167, 0.045) 1px, transparent 1px);
-        background-size: 80px 80px;
-        mask-image: radial-gradient(1000px 700px at 45% 52%, #000 10%, transparent 80%);
-        -webkit-mask-image: radial-gradient(1000px 700px at 45% 52%, #000 10%, transparent 80%);
       }
 
       .title {
@@ -39,6 +28,11 @@
         letter-spacing: -0.035em;
         line-height: 1;
         margin: 0;
+        color: #f2f4f3;
+      }
+
+      .title h1 span {
+        color: #f2b544;
       }
 
       .title p {
@@ -46,7 +40,7 @@
         font-size: 28px;
         font-weight: 500;
         letter-spacing: 0.02em;
-        color: #8a9c92;
+        color: #93a0a8;
       }
 
       .chapter {
@@ -55,21 +49,21 @@
         top: 74px;
         font-size: 28px;
         font-weight: 600;
-        letter-spacing: 0.18em;
-        color: #8a9c92;
+        letter-spacing: 0.14em;
+        color: #93a0a8;
         opacity: 0;
       }
 
       .chapter b {
-        color: #71f5a7;
+        color: #f2b544;
       }
 
       .pitch-wrap {
         position: absolute;
         left: 90px;
-        top: 196px;
-        width: 1200px;
-        height: 778px;
+        top: 176px;
+        width: 1300px;
+        height: 842px;
         opacity: 0;
       }
 
@@ -79,23 +73,19 @@
         overflow: visible;
       }
 
-      .card {
+      .panel {
         position: absolute;
         right: 90px;
         top: 186px;
-        width: 420px;
-        padding: 30px 32px 28px;
-        border: 1px solid rgba(113, 245, 167, 0.16);
-        border-radius: 18px;
-        background: linear-gradient(180deg, rgba(16, 29, 23, 0.92), rgba(8, 14, 11, 0.92));
-        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+        width: 370px;
+        opacity: 0;
       }
 
       .kicker {
         font-size: 28px;
         font-weight: 600;
-        letter-spacing: 0.2em;
-        color: #7f9188;
+        letter-spacing: 0.14em;
+        color: #93a0a8;
       }
 
       .iter-row {
@@ -110,27 +100,26 @@
         font-weight: 700;
         line-height: 0.9;
         letter-spacing: -0.06em;
-        color: #71f5a7;
+        color: #f2f4f3;
         font-variant-numeric: tabular-nums;
+        font-feature-settings: "tnum" 1;
       }
 
       .iter-total {
         font-size: 32px;
         font-weight: 600;
-        color: #8a9c92;
+        color: #93a0a8;
       }
 
       .dmax {
-        margin-top: 18px;
-        padding-top: 18px;
-        border-top: 1px solid rgba(113, 245, 167, 0.14);
+        margin-top: 26px;
       }
 
       .dmax-label {
         font-size: 28px;
         font-weight: 600;
-        letter-spacing: 0.16em;
-        color: #7f9188;
+        letter-spacing: 0.14em;
+        color: #93a0a8;
       }
 
       .dmax-value {
@@ -138,14 +127,12 @@
         font-size: 34px;
         font-weight: 600;
         letter-spacing: -0.02em;
-        color: #f3f7f4;
+        color: #f2b544;
         font-variant-numeric: tabular-nums;
       }
 
       .scale {
-        margin-top: 24px;
-        padding-top: 20px;
-        border-top: 1px solid rgba(113, 245, 167, 0.14);
+        margin-top: 30px;
         display: flex;
         gap: 18px;
         align-items: stretch;
@@ -157,14 +144,12 @@
         border-radius: 7px;
         background: linear-gradient(
           to top,
-          #0a1014 0%,
-          #0d2b33 15%,
-          #0e7490 35%,
-          #22d3ee 60%,
-          #a3e635 82%,
-          #fde047 100%
+          #440154 0%,
+          #3b528b 25%,
+          #21918c 50%,
+          #5ec962 75%,
+          #fde725 100%
         );
-        box-shadow: 0 0 24px rgba(34, 211, 238, 0.12);
       }
 
       .scale-meta {
@@ -178,36 +163,33 @@
         font-size: 28px;
         font-weight: 600;
         letter-spacing: 0.12em;
-        color: #8a9c92;
+        color: #93a0a8;
       }
 
       .scale-meta strong {
         font-size: 30px;
         font-weight: 600;
-        color: #f3f7f4;
+        color: #f2f4f3;
         font-variant-numeric: tabular-nums;
       }
 
-
-
       .note {
         position: absolute;
-        left: 90px;
-        bottom: 70px;
+        left: 0;
+        right: 0;
+        bottom: 16px;
         font-size: 28px;
         font-weight: 500;
-        color: #8a9c92;
+        color: #93a0a8;
         letter-spacing: 0.02em;
+        line-height: 1.35;
         opacity: 0;
       }
-
     </style>
 
     <div id="xt-clip" class="clip" data-start="0" data-duration="4.2" data-track-index="0">
-      <div class="grid-bg"></div>
-
       <div id="xt-title" class="title">
-        <h1>Expected Threat <span style="color:#71f5a7">(xT)</span></h1>
+        <h1>Expected Threat <span>(xT)</span></h1>
         <p>Grilla 16 × 12 · La Liga 2017/18</p>
       </div>
 
@@ -216,28 +198,28 @@
       <div id="xt-pitch-wrap" class="pitch-wrap">
         <svg id="xt-pitch" viewBox="0 0 105 68" preserveAspectRatio="none" aria-hidden="true">
           <g id="xt-cells"></g>
-          <g fill="none" stroke="#3a4656" stroke-width="0.16" stroke-linejoin="round">
+          <g fill="none" stroke="#66737d" stroke-width="0.24" stroke-linejoin="round">
             <rect x="0" y="0" width="105" height="68"></rect>
             <line x1="52.5" y1="0" x2="52.5" y2="68"></line>
             <circle cx="52.5" cy="34" r="9.15"></circle>
-            <circle cx="52.5" cy="34" r="0.22" fill="#3a4656" stroke="none"></circle>
+            <circle cx="52.5" cy="34" r="0.24" fill="#66737d" stroke="none"></circle>
             <rect x="0" y="13.84" width="16.5" height="40.32"></rect>
             <rect x="88.5" y="13.84" width="16.5" height="40.32"></rect>
             <rect x="0" y="24.84" width="5.5" height="18.32"></rect>
             <rect x="99.5" y="24.84" width="5.5" height="18.32"></rect>
-            <circle cx="11" cy="34" r="0.22" fill="#3a4656" stroke="none"></circle>
-            <circle cx="94" cy="34" r="0.22" fill="#3a4656" stroke="none"></circle>
+            <circle cx="11" cy="34" r="0.24" fill="#66737d" stroke="none"></circle>
+            <circle cx="94" cy="34" r="0.24" fill="#66737d" stroke="none"></circle>
             <path d="M 0 3.68 A 9.15 9.15 0 0 1 0 64.32"></path>
             <path d="M 105 3.68 A 9.15 9.15 0 0 0 105 64.32"></path>
           </g>
           <g id="xt-hot" opacity="0">
-            <rect id="xt-hot-rect" x="98.4375" y="28.3333" width="6.5625" height="5.6667" fill="none" stroke="#fde047" stroke-width="0.34"></rect>
-            <circle id="xt-hot-pulse" cx="101.7188" cy="31.1667" r="1.2" fill="none" stroke="#fde047" stroke-width="0.18" opacity="0.9"></circle>
+            <rect id="xt-hot-rect" x="98.4375" y="28.3333" width="6.5625" height="5.6667" fill="none" stroke="#f2b544" stroke-width="0.4"></rect>
+            <circle id="xt-hot-pulse" cx="101.7188" cy="31.1667" r="1.2" fill="none" stroke="#f2b544" stroke-width="0.2" opacity="0.9"></circle>
           </g>
         </svg>
       </div>
 
-      <div id="xt-card" class="card">
+      <div id="xt-panel" class="panel">
         <div class="kicker">ITERACIÓN</div>
         <div class="iter-row">
           <span id="xt-iter" class="iter">01</span>
@@ -254,9 +236,8 @@
             <div><span>MÍN</span><br /><strong>0,000</strong></div>
           </div>
         </div>
+        <div id="xt-note" class="note">La amenaza se propaga desde el arco hacia atrás.</div>
       </div>
-
-      <div id="xt-note" class="note">La amenaza se propaga desde el arco hacia atrás.</div>
     </div>
 
     <script>
@@ -271,7 +252,7 @@
         var NS = "http://www.w3.org/2000/svg";
         var cellsGroup = document.getElementById("xt-cells");
         var pitchWrap = document.getElementById("xt-pitch-wrap");
-        var card = document.getElementById("xt-card");
+        var panel = document.getElementById("xt-panel");
         var title = document.getElementById("xt-title");
         var chapter = document.getElementById("xt-chapter");
         var note = document.getElementById("xt-note");
@@ -285,12 +266,11 @@
         var CH = 68 / NM.n;
         var cells = [];
         var stops = [
-          [0.0, [10, 16, 20]],
-          [0.15, [13, 43, 51]],
-          [0.35, [14, 116, 144]],
-          [0.6, [34, 211, 238]],
-          [0.82, [163, 230, 53]],
-          [1.0, [253, 224, 71]],
+          [0.0, [68, 1, 84]],
+          [0.25, [59, 82, 139]],
+          [0.5, [33, 145, 140]],
+          [0.75, [94, 201, 98]],
+          [1.0, [253, 231, 37]],
         ];
 
         function colorAt(u) {
@@ -306,7 +286,7 @@
               return "rgb(" + r + "," + g + "," + bl + ")";
             }
           }
-          return "rgb(253,224,71)";
+          return "rgb(253,231,37)";
         }
 
         for (var j = 0; j < NM.n; j += 1) {
@@ -316,9 +296,7 @@
             rect.setAttribute("y", ((NM.n - 1 - j) * CH).toFixed(4));
             rect.setAttribute("width", CW.toFixed(4));
             rect.setAttribute("height", CH.toFixed(4));
-            rect.setAttribute("fill", "#0a1014");
-            rect.setAttribute("stroke", "rgba(255,255,255,0.035)");
-            rect.setAttribute("stroke-width", "0.03");
+            rect.setAttribute("fill", "#440154");
             cellsGroup.appendChild(rect);
             cells.push(rect);
           }
@@ -357,13 +335,13 @@
 
         gsap.set(title, { opacity: 0, y: 18 });
         gsap.set(pitchWrap, { opacity: 0, scale: 0.965 });
-        gsap.set(card, { opacity: 0, x: 24 });
+        gsap.set(panel, { opacity: 0, x: 24 });
         gsap.set(hot, { opacity: 0 });
 
         tl.to(title, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.02);
         tl.to(chapter, { opacity: 1, duration: 0.4, ease: "power2.out" }, 0.12);
         tl.to(pitchWrap, { opacity: 1, scale: 1, duration: 0.55, ease: "power3.out" }, 0.1);
-        tl.to(card, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 0.18);
+        tl.to(panel, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 0.18);
         tl.to(note, { opacity: 1, duration: 0.4, ease: "power2.out" }, 0.4);
 
         tl.to(

@@ -1,0 +1,61 @@
+notebook,cell,image_index,scene,filename,heading,bytes
+p1,21,1,otros,otros/p1_cell021_1_4_distribucion_de_tipos_de_eventos.png,1.4 Distribución de tipos de eventos,42342
+p1,24,1,esc03,esc03/esc03_shotmap_1.png,2. Shot Maps — Mapa de tiros,440869
+p1,24,2,esc03,esc03/esc03_shotmap_2.png,2. Shot Maps — Mapa de tiros,440869
+p1,26,1,esc03,esc03/esc03_heatmap_densidad.png,3. Heat Maps — Densidad de acciones,98117
+p1,29,1,esc03,esc03/esc03_heatmap_equipos_1.png,3. Heat Maps — Densidad de acciones,96372
+p1,29,2,esc03,esc03/esc03_heatmap_equipos_2.png,3. Heat Maps — Densidad de acciones,96692
+p1,32,1,esc03,esc03/esc03_xg_curva.png,4. Expected Goals (xG),64111
+p1,38,1,esc03,esc03/esc03_red_pases_barcelona.png,5. Redes de Pases (Passing Networks),202920
+p1,45,1,esc03,esc03/esc03_radar_kroos.png,6. Radar Charts — Comparación de jugadores,142273
+p1,46,1,esc03,esc03/esc03_radar_cristiano.png,6. Radar Charts — Comparación de jugadores,139545
+p1,50,1,esc03,esc03/esc03_pases_progresivos.png,7. Progressive Passes — Pases Progresivos,645242
+p1,58,1,esc03,esc03/esc03_shotmap_barca_vs_madrid.png,Subplot para comparar los equipos,184532
+p1,65,1,esc03,esc03/esc03_xg_acumulado.png,Ejercicio 2 — xG semanal,117710
+p1,72,1,esc03,esc03/esc03_red_pases_villarreal.png,Ejercicio 3 — Red de pases más conectada,250612
+p1,74,1,esc03,esc03/esc03_red_pases_villarreal_mitades_1.png,Ejercicio 3 — Red de pases más conectada,201486
+p1,74,2,esc03,esc03/esc03_red_pases_villarreal_mitades_2.png,Ejercicio 3 — Red de pases más conectada,222916
+p1,79,1,esc03,esc03/esc03_radar_mediocampistas.png,Ejercicio 4 — Radar comparativo,191658
+p1,80,1,esc03,esc03/esc03_radar_mediocampistas_2.png,Ejercicio 4 — Radar comparativo,174178
+p1,81,1,esc03,esc03/esc03_radar_mediocampistas_3.png,Ejercicio 4 — Radar comparativo,195172
+p1,82,1,esc03,esc03/esc03_radar_mediocampistas_4.png,Ejercicio 4 — Radar comparativo,88368
+p1,87,1,esc03,esc03/esc03_pressing_equipos.png,Ejercicio 5 — Análisis de pressing,192462
+p1,89,1,esc03,esc03/esc03_pressing_barras.png,Ejercicio 5 — Análisis de pressing,1023242
+p1,91,1,esc03,esc03/esc03_pressing_heatmaps.png,Ejercicio 5 — Análisis de pressing,766203
+p2,21,1,otros,otros/p2_cell021_2_2_analisis_de_valores_faltantes.png,2.2 Análisis de valores faltantes,12086
+p2,31,1,esc04,esc04/esc04_heatmap_eventos.png,Distribución espacial de los eventos — heatmap 2D,42815
+p2,41,1,otros,otros/p2_cell041_2_5_deteccion_de_outliers_y_anomalias_en_los_datos.png,2.5 Detección de outliers y anomalías en los datos,37525
+p2,46,1,otros,otros/p2_cell046_2_6_analisis_de_sesgo_en_los_datos.png,2.6 Análisis de sesgo en los datos,34795
+p2,62,1,otros,otros/p2_cell062_3_1_analisis_del_dataset_spadl.png,3.1 Análisis del dataset SPADL,41517
+p2,74,1,otros,otros/p2_cell074_4_1_analisis_de_correlaciones_y_multicolinealidad.png,4.1 Análisis de correlaciones y multicolinealidad,58472
+p2,83,1,otros,otros/p2_cell083_etapa_2_normalizacion_posicional_comparacion_entre_pares.png,Etapa 2: Normalización Posicional (Comparación entre pares),139817
+p2,84,1,otros,otros/p2_cell084_etapa_2_normalizacion_posicional_comparacion_entre_pares.png,Etapa 2: Normalización Posicional (Comparación entre pares),134421
+p2,93,1,otros,otros/p2_cell093_ejercicio_1_auditoria_de_calidad_multilga.png,Ejercicio 1 — Auditoría de calidad multilga,22170
+p2,99,1,esc04,esc04/esc04_distribucion_temporal.png,Ejercicio 2 — Análisis de la distribución temporal,48924
+p2,100,1,esc04,esc04/esc04_distribucion_temporal_2.png,Ejercicio 2 — Análisis de la distribución temporal,29421
+p2,103,1,otros,otros/p2_cell103_ejercicio_2_analisis_de_la_distribucion_temporal.png,Ejercicio 2 — Análisis de la distribución temporal,24568
+p2,110,1,esc04,esc04/esc04_features.png,Ejercicio 3 — Feature engineering avanzado,53138
+p2,119,1,esc04,esc04/esc04_sesgo_posicional_1.png,Ejercicio 4 — Sesgo posicional,96704
+p2,119,2,esc04,esc04/esc04_sesgo_posicional_2.png,Ejercicio 4 — Sesgo posicional,135632
+p3,9,1,esc05,esc05/esc05_xt_grilla.png,1. Framework xT (Expected Threat),59179
+p3,20,1,esc05,esc05/esc05_vaep_distribucion.png,2. Framework VAEP (Valuing Actions by Estimating Probabilities),186183
+p3,22,1,esc05,esc05/esc05_shap_1.png,3. Explicabilidad con SHAP,65416
+p3,23,1,esc05,esc05/esc05_shap_2.png,3. Explicabilidad con SHAP,79050
+p3,24,1,esc05,esc05/esc05_shap_3.png,3. Explicabilidad con SHAP,73225
+p3,27,1,esc05,esc05/esc05_vaep_vs_xt.png,4. Comparación VAEP vs xT,131675
+p3,31,1,esc05,esc05/esc05_clustering_codo.png,5. Clustering de jugadores,50277
+p3,33,1,esc05,esc05/esc05_clusters_perfiles.png,5. Clustering de jugadores,68448
+p3,35,1,esc05,esc05/esc05_umap.png,6. Visualización con UMAP,139073
+p3,38,1,esc05,esc05/esc05_scouting_messi.png,7. Sistema de Scouting por Similitud,72668
+p3,45,1,esc05,esc05/esc05_xt_grilla_32x24.png,Ejercicio 1 — Grilla xT extendida,71488
+p3,60,1,esc05,esc05/esc05_heatmap_vaep_messi_cr_dybala.png,Ejercicio 3 — Mapas Espaciales de Generación de Valor (Action-Value Flow),51880
+p3,61,1,esc05,esc05/esc05_flujo_vaep.png,Ejercicio 3 — Mapas Espaciales de Generación de Valor (Action-Value Flow),199252
+p3,62,1,esc05,esc05/esc05_tiros_pases_top.png,Ejercicio 3 — Mapas Espaciales de Generación de Valor (Action-Value Flow),238040
+p3,63,1,esc05,esc05/esc05_flujo_vaep_2.png,Ejercicio 3 — Mapas Espaciales de Generación de Valor (Action-Value Flow),219350
+p3,64,1,esc05,esc05/esc05_flujo_vaep_3.png,Ejercicio 3 — Mapas Espaciales de Generación de Valor (Action-Value Flow),186099
+p3,68,1,esc05,esc05/esc05_clusters_por_liga.png,Ejercicio 4 — Clustering por liga,38238
+p3,69,1,esc05,esc05/esc05_clusters_por_liga_perfiles.png,Ejercicio 4 — Clustering por liga,104871
+p3,77,1,esc05,esc05/esc05_scouting_iniesta_1.png,Ejercicio 5 — Sistema de scouting,155284
+p3,77,2,esc05,esc05/esc05_scouting_iniesta_2.png,Ejercicio 5 — Sistema de scouting,38181
+p3,78,1,esc05,esc05/esc05_scouting_messi_2_1.png,Ejercicio 5 — Sistema de scouting,155288
+p3,78,2,esc05,esc05/esc05_scouting_messi_2_2.png,Ejercicio 5 — Sistema de scouting,37209

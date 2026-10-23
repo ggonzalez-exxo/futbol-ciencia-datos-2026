@@ -22,3 +22,5 @@ __pycache__/
 
 #Corrección de errores
 /correcciones/
+# Entorno para generar assets del video
+.venv-video/

@@ -1,0 +1,14 @@
+# Dependencias para generar los assets del video.
+# Instalar con:
+#   uv pip install --python .venv-video/bin/python -r video/scripts/requirements.txt
+# o:
+#   pip install -r video/scripts/requirements.txt
+
+numpy>=1.26
+pandas>=2.2
+pyarrow>=16
+matplotlib>=3.8
+mplsoccer>=1.4
+scikit-learn>=1.4
+umap-learn>=0.5
+pillow>=10

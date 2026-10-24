@@ -72,17 +72,18 @@ tech (verde neón, grids, tarjetas, mucho aire). Gustaban más las primeras
 - [ ] Si el heatmap reconstruido sigue sin gustar, usar los **PNG originales de VAEP** como asset y animar un reveal suave.
 - [ ] Confirmar duración y orden del master: 3,2 / 4,2 / 4,2 / 5,4 s.
 
-### 3. Pasar a Kdenlive
+### 3. Kdenlive — descartado
 
-- [ ] Instalar `cli-anything-kdenlive` en un entorno del repo (`.venv-kdenlive`).
-- [ ] Smoke test: MLT de 30 s con 2 clips y 2 guías, abrirlo en Kdenlive 25.12.3.
-- [ ] Escribir `video/edl.json` con escenas, assets, pistas, in/out y guías.
-- [ ] Builder `video/scripts/build_kdenlive_timeline.py`:
-  - `ffprobe` para duraciones;
-  - API core de la CLI (no invocaciones separadas: el estado no persiste);
-  - exportar JSON + MLT.
-- [ ] Montar en Kdenlive: V1 footage, V2 gráficos, A1 VO, A2 música, A3 ambiente.
-- [ ] Cortar el master HyperFrames en 3,2 / 7,4 / 11,6 s.
+> Probamos el flujo `cli-anything-kdenlive` (EDL + builder + MLT generado) y el
+> resultado en Kdenlive quedó mal: se descartó esa vía. Si el video final se monta
+> en Kdenlive, se hace a mano en la GUI (importar los MP4 de `video/animaciones/`
+> y armar las pistas), sin pipeline automático.
+
+### 3bis. Montaje manual en Kdenlive (si se usa)
+
+- [ ] Nuevo proyecto 1080p30 e importar los MP4 de `video/animaciones/`.
+- [ ] Pistas: V1 footage, V2 gráficos, A1 VO, A2 música, A3 ambiente.
+- [ ] Guías manuales en los límites del guión (0:50 / 2:00 / 3:30 / 6:30 / 9:00 / 10:20 / 12:00).
 
 ### 4. Audio y VO
 

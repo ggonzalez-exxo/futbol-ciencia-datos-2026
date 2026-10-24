@@ -1,0 +1,191 @@
+{
+  "version": "1.0",
+  "name": "futbol-ciencia-datos-video-final",
+  "profile": {
+    "name": "hd1080p30",
+    "width": 1920,
+    "height": 1080,
+    "fps_num": 30,
+    "fps_den": 1,
+    "progressive": true,
+    "dar_num": 16,
+    "dar_den": 9
+  },
+  "bin": [
+    {
+      "id": "clip0",
+      "name": "esc00-cold-open::hf_counter",
+      "source": "/home/ezeluduena/diplo/futbol-ciencia-datos-2026/video/animaciones/hf_counter.mp4",
+      "duration": 3.2,
+      "type": "video"
+    },
+    {
+      "id": "clip1",
+      "name": "esc05a-xt-vaep::hf_xt",
+      "source": "/home/ezeluduena/diplo/futbol-ciencia-datos-2026/video/animaciones/hf_xt.mp4",
+      "duration": 4.2,
+      "type": "video"
+    },
+    {
+      "id": "clip2",
+      "name": "esc05a-xt-vaep::hf_heatmap_vaep",
+      "source": "/home/ezeluduena/diplo/futbol-ciencia-datos-2026/video/animaciones/hf_heatmap_vaep.mp4",
+      "duration": 4.2,
+      "type": "video"
+    },
+    {
+      "id": "clip3",
+      "name": "esc05a-xt-vaep::hf_umap",
+      "source": "/home/ezeluduena/diplo/futbol-ciencia-datos-2026/video/animaciones/hf_umap.mp4",
+      "duration": 5.4,
+      "type": "video"
+    }
+  ],
+  "tracks": [
+    {
+      "id": 0,
+      "name": "V1 footage",
+      "type": "video",
+      "mute": false,
+      "hide": false,
+      "locked": false,
+      "clips": []
+    },
+    {
+      "id": 1,
+      "name": "V2 graficos",
+      "type": "video",
+      "mute": false,
+      "hide": false,
+      "locked": false,
+      "clips": [
+        {
+          "clip_id": "clip0",
+          "in": 0.0,
+          "out": 3.2,
+          "position": 2.0,
+          "filters": []
+        },
+        {
+          "clip_id": "clip1",
+          "in": 0.0,
+          "out": 4.2,
+          "position": 540.0,
+          "filters": []
+        },
+        {
+          "clip_id": "clip2",
+          "in": 0.0,
+          "out": 4.2,
+          "position": 545.0,
+          "filters": []
+        },
+        {
+          "clip_id": "clip3",
+          "in": 0.0,
+          "out": 5.4,
+          "position": 550.0,
+          "filters": []
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "A1 voz",
+      "type": "audio",
+      "mute": false,
+      "hide": false,
+      "locked": false,
+      "clips": []
+    },
+    {
+      "id": 3,
+      "name": "A2 musica",
+      "type": "audio",
+      "mute": false,
+      "hide": false,
+      "locked": false,
+      "clips": []
+    },
+    {
+      "id": 4,
+      "name": "A3 ambiente",
+      "type": "audio",
+      "mute": false,
+      "hide": false,
+      "locked": false,
+      "clips": []
+    }
+  ],
+  "transitions": [],
+  "guides": [
+    {
+      "id": 0,
+      "position": 0,
+      "label": "ESC 0 cold open",
+      "type": "default",
+      "comment": ""
+    },
+    {
+      "id": 1,
+      "position": 50,
+      "label": "ESC 1 intro mentoria",
+      "type": "default",
+      "comment": ""
+    },
+    {
+      "id": 2,
+      "position": 120,
+      "label": "ESC 2 dataset wyscout",
+      "type": "default",
+      "comment": ""
+    },
+    {
+      "id": 3,
+      "position": 210,
+      "label": "ESC 3 TP1 mirar el juego",
+      "type": "default",
+      "comment": ""
+    },
+    {
+      "id": 4,
+      "position": 390,
+      "label": "ESC 4 TP2 curacion y SPADL",
+      "type": "default",
+      "comment": ""
+    },
+    {
+      "id": 5,
+      "position": 540,
+      "label": "ESC 5 TP3 valorar y agrupar",
+      "type": "default",
+      "comment": ""
+    },
+    {
+      "id": 6,
+      "position": 620,
+      "label": "ESC 5b clustering y scouting",
+      "type": "default",
+      "comment": ""
+    },
+    {
+      "id": 7,
+      "position": 720,
+      "label": "ESC 6 cierre",
+      "type": "default",
+      "comment": ""
+    },
+    {
+      "id": 8,
+      "position": 780,
+      "label": "FIN (13:00)",
+      "type": "default",
+      "comment": ""
+    }
+  ],
+  "metadata": {
+    "created": "2026-10-23T21:14:39.460464",
+    "modified": "2026-10-23T21:14:39.945483",
+    "software": "kdenlive-cli 1.0"
+  }
+}

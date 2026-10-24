@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mlt LC_NUMERIC="C" version="7.0.0" title="futbol-ciencia-datos-video-final" producer="kdenlive-cli">
+  <profile description="hd1080p30" width="1920" height="1080" progressive="1" sample_aspect_num="17280" sample_aspect_den="17280" display_aspect_num="16" display_aspect_den="9" frame_rate_num="30" frame_rate_den="1" colorspace="709"/>
+  <producer id="clip0" in="0" out="95">
+    <property name="resource">/home/ezeluduena/diplo/futbol-ciencia-datos-2026/video/animaciones/hf_counter.mp4</property>
+    <property name="kdenlive:clipname">esc00-cold-open::hf_counter</property>
+    <property name="kdenlive:clip_type">0</property>
+    <property name="length">96</property>
+  </producer>
+  <producer id="clip1" in="0" out="125">
+    <property name="resource">/home/ezeluduena/diplo/futbol-ciencia-datos-2026/video/animaciones/hf_xt.mp4</property>
+    <property name="kdenlive:clipname">esc05a-xt-vaep::hf_xt</property>
+    <property name="kdenlive:clip_type">0</property>
+    <property name="length">126</property>
+  </producer>
+  <producer id="clip2" in="0" out="125">
+    <property name="resource">/home/ezeluduena/diplo/futbol-ciencia-datos-2026/video/animaciones/hf_heatmap_vaep.mp4</property>
+    <property name="kdenlive:clipname">esc05a-xt-vaep::hf_heatmap_vaep</property>
+    <property name="kdenlive:clip_type">0</property>
+    <property name="length">126</property>
+  </producer>
+  <producer id="clip3" in="0" out="161">
+    <property name="resource">/home/ezeluduena/diplo/futbol-ciencia-datos-2026/video/animaciones/hf_umap.mp4</property>
+    <property name="kdenlive:clipname">esc05a-xt-vaep::hf_umap</property>
+    <property name="kdenlive:clip_type">0</property>
+    <property name="length">162</property>
+  </producer>
+  <playlist id="playlist0">
+    <property name="kdenlive:track_name">V1 footage</property>
+  </playlist>
+  <playlist id="playlist1">
+    <property name="kdenlive:track_name">V2 graficos</property>
+    <blank length="60"/>
+    <entry producer="clip0" in="0" out="95">
+    </entry>
+    <blank length="16044"/>
+    <entry producer="clip1" in="0" out="125">
+    </entry>
+    <blank length="24"/>
+    <entry producer="clip2" in="0" out="125">
+    </entry>
+    <blank length="24"/>
+    <entry producer="clip3" in="0" out="161">
+    </entry>
+  </playlist>
+  <playlist id="playlist2">
+    <property name="kdenlive:track_name">A1 voz</property>
+  </playlist>
+  <playlist id="playlist3">
+    <property name="kdenlive:track_name">A2 musica</property>
+  </playlist>
+  <playlist id="playlist4">
+    <property name="kdenlive:track_name">A3 ambiente</property>
+  </playlist>
+  <tractor id="maintractor">
+    <track producer="playlist0"/>
+    <track producer="playlist1"/>
+    <track producer="playlist2"/>
+    <track producer="playlist3"/>
+    <track producer="playlist4"/>
+  </tractor>
+  <kdenlivedoc>
+    <guide pos="0" comment="ESC 0 cold open" type="default"/>
+    <guide pos="1500" comment="ESC 1 intro mentoria" type="default"/>
+    <guide pos="3600" comment="ESC 2 dataset wyscout" type="default"/>
+    <guide pos="6300" comment="ESC 3 TP1 mirar el juego" type="default"/>
+    <guide pos="11700" comment="ESC 4 TP2 curacion y SPADL" type="default"/>
+    <guide pos="16200" comment="ESC 5 TP3 valorar y agrupar" type="default"/>
+    <guide pos="18600" comment="ESC 5b clustering y scouting" type="default"/>
+    <guide pos="21600" comment="ESC 6 cierre" type="default"/>
+    <guide pos="23400" comment="FIN (13:00)" type="default"/>
+  </kdenlivedoc>
+</mlt>

@@ -74,15 +74,19 @@ tech (verde neón, grids, tarjetas, mucho aire). Gustaban más las primeras
 
 ### 3. Pasar a Kdenlive
 
-- [ ] Instalar `cli-anything-kdenlive` en un entorno del repo (`.venv-kdenlive`).
-- [ ] Smoke test: MLT de 30 s con 2 clips y 2 guías, abrirlo en Kdenlive 25.12.3.
-- [ ] Escribir `video/edl.json` con escenas, assets, pistas, in/out y guías.
-- [ ] Builder `video/scripts/build_kdenlive_timeline.py`:
+- [x] Instalar `cli-anything-kdenlive` en un entorno del repo (`.venv-kdenlive`).
+- [x] Smoke test: MLT con 2 clips y 2 guías, validado con `melt` (falta abrirlo en la GUI de Kdenlive 25.12.3).
+- [x] Escribir `video/edl.json` con escenas, assets, pistas, in/out y guías.
+- [x] Builder `video/scripts/build_kdenlive_timeline.py`:
   - `ffprobe` para duraciones;
-  - API core de la CLI (no invocaciones separadas: el estado no persiste);
-  - exportar JSON + MLT.
-- [ ] Montar en Kdenlive: V1 footage, V2 gráficos, A1 VO, A2 música, A3 ambiente.
-- [ ] Cortar el master HyperFrames en 3,2 / 7,4 / 11,6 s.
+  - API core de la CLI en proceso;
+  - exporta `video/kdenlive/proyecto.json` + `video/kdenlive/proyecto.mlt` (melt-validado).
+- [ ] Montar en Kdenlive: V1 footage, V2 gráficos, A1 VO, A2 música, A3 ambiente (las pistas ya existen; faltan los assets).
+- [ ] Cortar el master HyperFrames en 3,2 / 7,4 / 11,6 s (innecesario si se usan las piezas individuales, ya colocadas en V2).
+
+> Regenerar el timeline cuando llegue material: `.venv-kdenlive/bin/python
+> video/scripts/build_kdenlive_timeline.py` (los assets opcionales ausentes
+> se saltan con warning).
 
 ### 4. Audio y VO
 

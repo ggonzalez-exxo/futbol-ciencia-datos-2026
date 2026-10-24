@@ -60,16 +60,15 @@
 
 ## C. Kdenlive (P0)
 
-- [x] Instalar `cli-anything-kdenlive` en `.venv-kdenlive`.
-- [x] Smoke test: MLT con 2 clips y 2 guías; validado con melt 7.36.1 (queda abrirlo en Kdenlive GUI).
-- [x] Definir `video/edl.json`:
+- [ ] Instalar `cli-anything-kdenlive` en `.venv-kdenlive`.
+- [ ] Smoke test: MLT de 30 s con 2 clips y 2 guías; abrirlo en Kdenlive 25.12.3.
+- [ ] Definir `video/edl.json`:
   - escenas, assets, pistas, in/out, guías;
-  - guías en los límites del guión (0:50 / 2:00 / 3:30 / 6:30 / 9:00 / 10:20 / 12:00);
-  - piezas HF individuales en V2 (no hace falta cortar el master).
-- [x] Builder `video/scripts/build_kdenlive_timeline.py`:
+  - duración del master HyperFrames y puntos de corte (3,2 / 7,4 / 11,6 s).
+- [ ] Builder `video/scripts/build_kdenlive_timeline.py`:
   - duraciones con `ffprobe`;
-  - API core de la CLI (en proceso, `.venv-kdenlive`);
-  - guarda `video/kdenlive/proyecto.json` y exporta MLT validado con melt.
+  - API core de la CLI (el estado no persiste entre invocaciones);
+  - guardar JSON y exportar MLT.
 - [ ] Montar el timeline y pulir en la GUI:
   - transiciones, títulos, color, audio.
 - [ ] Render final desde Kdenlive.
